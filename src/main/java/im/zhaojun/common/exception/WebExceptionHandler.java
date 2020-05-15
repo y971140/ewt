@@ -104,8 +104,17 @@ public class WebExceptionHandler {
         }
         return generateErrorInfo(ResultBean.FAIL, "管理员帐号不允许锁定");
     }
-    
-    
+    /**
+     * 是否正常（1.正常，0.锁定），正常值的供应商不允许删除
+     */
+    @ExceptionHandler
+    public String lockedAccount(UsedProviderCannotBeDeleted e) {
+        if (log.isDebugEnabled()) {
+            log.debug("已使用的供应商不能删除");
+        }
+        return generateErrorInfo(ResultBean.FAIL, "已使用的供应商不能删除");
+    }
+
     @ExceptionHandler
     public String lockedAccount(CaptchaIncorrectException e) {
         if (log.isDebugEnabled()) {
@@ -117,7 +126,7 @@ public class WebExceptionHandler {
     @ExceptionHandler
     public String lockedAccount(DuplicateNameException e) {
         if (log.isDebugEnabled()) {
-            log.debug("用户名已存在");
+            log.debug("名称已存在");
         }
         return generateErrorInfo(ResultBean.FAIL, "用户名已存在");
     }

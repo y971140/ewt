@@ -94,7 +94,7 @@ public class ProviderController {
     @ApiImplicitParam(paramType = "query",name = "id",defaultValue="0", value="供应商ID", required = true)
     @ApiResponse(code = 400,message = "参数没有填好",response = String.class)
 	@ResponseBody
-	public ResultBean delete(@RequestParam("id") Long id) {
+	public ResultBean delete(@RequestParam("id") Integer id) {
 		return ResultBean.success(providerService.deleteProvider(id));
 		//return "provider/provider-list";
 	}

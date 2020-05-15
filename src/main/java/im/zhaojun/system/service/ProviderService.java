@@ -17,7 +17,7 @@ public interface ProviderService {
 
 	int enableProviderByID(Long id);
 
-	int deleteProvider(Long id);
+	int deleteProvider(Integer id);
 
 	int deleteAllProvider(Long[] id);
 

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro"
+      xmlns="http://www.w3.org/1999/html">
 
 <head>
     <meta charset="UTF-8">
@@ -18,31 +19,31 @@
 <div class="page-loading">
     <div class="rubik-loader"></div>
 </div>
-<div class="z-body animated fadeIn">
+<div class="z-body animated fadeIn ">
     <form class="layui-form  zadmin-search-area input">
-    <div class="layui-form-item">
-        <label for="title" class="layui-form-label">商品标题</label>
-        <div class="layui-input-inline">
-            <input type="text" name="title"  autocomplete="off" placeholder="请输入标题" class="layui-input">
+        <div class="layui-form-item">
+            <label for="title" class="layui-form-label">商品标题</label>
+            <div class="layui-input-inline">
+                <input type="text" name="title" autocomplete="off" placeholder="请输入标题" class="layui-input">
+            </div>
+            <label for="sellPoint" class="layui-form-label">商品卖点</label>
+            <div class="layui-input-inline">
+                <input type="text" name="sellPoint" autocomplete="off" placeholder="请输入卖点" class="layui-input">
+            </div>
+            <label for="status" class="layui-form-label">商品状态</label>
+            <div class="layui-input-inline">
+                <select name="status" id="status">
+                    <option value="">请选择</option>
+                    <option value="1">上架</option>
+                    <option value="2">下架</option>
+                    <option value="3">删除</option>
+                </select>
+            </div>
+          <button lay-submit="" lay-filter="search" style="margin: -5px auto"
+                    class="layui-btn layui-btn-sm layui-btn-primary table-action layui-btn-primary-zadmin">
+                <i class="zadmin-icon zadmin-icon-search"></i>
+            </button>
         </div>
-        <label for="sellPoint" class="layui-form-label">商品卖点</label>
-        <div class="layui-input-inline">
-            <input type="text" name="sellPoint"  autocomplete="off" placeholder="请输入卖点" class="layui-input">
-        </div>
-        <label for="status" class="layui-form-label">商品状态</label>
-        <div class="layui-input-inline">
-            <select name="status" id="status">
-                <option value="">请选择</option>
-                <option value="1">正常</option>
-                <option value="2">下架</option>
-                <option value="3">删除</option>
-            </select>
-        </div>
-        <button lay-submit="" lay-filter="search"
-                class="layui-btn layui-btn-sm layui-btn-primary table-action">
-            <i class="zadmin-icon zadmin-icon-search"></i>
-        </button>
-    </div>
     </form>
     <table class="layui-hide" id="item-table"></table>
 </div>
@@ -72,210 +73,243 @@
         <i class="zadmin-icon zadmin-icon-wuquanxian zadmin-oper-area zadmin-red"></i>无权限
     </shiro:lacksPermission>
 </script>
-
-
+<script type="text/html" id="statusTpl">
+    <!-- 不能禁用自己 -->
+    {{#  if('<shiro:principal property="username"/>' == d.username) { }}
+    <input type="checkbox" disabled name="status" value="{{d.userId}}" lay-skin="switch" lay-text="上架|下架"
+           lay-filter="status" {{ d.status == '1' ? 'checked' : '' }}>
+    {{#  } }}
+    {{#  if('<shiro:principal property="username"/>' !== d.username) { }}
+    <input type="checkbox" name="status" value="{{d.userId}}" lay-skin="switch" lay-text="上架|下架" lay-filter="status"
+           {{ d.status == '1' ? 'checked' : '' }}>
+    {{#  } }}
+</script>
+<script type="text/html" id="statusPrice">{{(d.price.toFixed(2))}}</script>
+<script>
+function fixed(str){
+if (str !== '' && str != null){
+if(str === 0){  //当为0时，不用处理
+return 0 ;
+}else {
+return str.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+}
+} else {
+return '';
+}
+}
+</script>
 <script th:src="@{/lib/jquery/jquery.min.js}"></script>
 <script th:src="@{/lib/layui/layui.js}"></script>
 <script th:src="@{/js/common.js}"></script>
 
 <script>
-        layui.config({
-            base: '/lib/layui/extend/'
-        }).use(['table', 'element', 'form', 'dtree', 'tablePlug'], function () {
-            var table = layui.table;
-            var $ = layui.$;
-            var form = layui.form;
-            var dtree = layui.dtree;
-            var tablePlug = layui.tablePlug;
+    layui.config({
+        base: '/lib/layui/extend/'
+    }).use(['table', 'element', 'form', 'dtree', 'tablePlug'], function () {
+        var table = layui.table;
+        var $ = layui.$;
+        var form = layui.form;
+        var dtree = layui.dtree;
+        var tablePlug = layui.tablePlug;
 
-            tablePlug.smartReload.enable(true);
+        tablePlug.smartReload.enable(true);
 
-           /* dtree.renderSelect({
-                elem: "#deptTree",
-                url: "/dept/tree",
-                dataStyle: "layuiStyle",
-                width: "100%",
-                method: "GET",
-                dot: false,
-                menubar: true,
-                response: {
-                    statusCode: 0,
-                    message: "msg",
-                    treeId: "id",
-                    parentId: "parentId",
-                    title: "name"
+        /* dtree.renderSelect({
+             elem: "#deptTree",
+             url: "/dept/tree",
+             dataStyle: "layuiStyle",
+             width: "100%",
+             method: "GET",
+             dot: false,
+             menubar: true,
+             response: {
+                 statusCode: 0,
+                 message: "msg",
+                 treeId: "id",
+                 parentId: "parentId",
+                 title: "name"
+             }
+         });*/
+        /*     dtree.on("node('deptTree')", function (obj) {
+                 var typeDom = layui.$('#deptId');
+                 console.log(typeDom.val(), obj.param.nodeId);
+                 console.log(typeDom.val() === obj.param.nodeId);
+                 if (typeDom.val() === obj.param.nodeId) {
+                     typeDom.val('');
+                     layui.$("input[dtree-id='deptTree']").val('请选择');
+                 } else {
+                     typeDom.val(obj.param.nodeId)
+                 }
+             });*/
+
+        table.render({
+            elem: '#item-table'
+            , url: '/item/list'
+            , page: true
+            , height: 'full-20'
+            , toolbar: '#toolbar'
+            , smartReloadModel: true
+            , cols: [
+                [
+                    {title: '操作', fixed: 'left', align: 'center', toolbar: '#column-toolbar'}
+                    , {type: 'checkbox'}
+                    , {type: 'numbers', title: '序号', sort: true, width: '5%'}
+                    , {field: 'id', title: 'ID', sort: true, width: '10%', hide: true}
+                    , {field: 'cid', title: '所属类目', width: 120, templet: '<div>{{sotitle(d.cid)}}</div>'}
+                    , {field: 'title', title: '商品标题', sort: true, width: '10%'}
+                    , {field: 'sellPoint', title: '商品卖点', sort: true, width: '260', totalRowText: '本页小计'}
+                    , {field: 'price', title: '商品价格',  sort: true,width: "120", templet: "#statusPrice"}
+                    , {field: 'num', title: '库存数量',  sort: true,width: "12%", totalRow: true}
+                    , {field: 'barcode', title: '商品条码', width: "12%"}
+                    , {field: 'image', title: '商品图片', width: "80"}
+                    , {
+                    field: 'status',
+                    title: '商品状态',
+                    templet: "#statusTpl",
+                    sort: true,
+                    width: "160",
+                    totalRowText: '库存总额'
                 }
-            });*/
-       /*     dtree.on("node('deptTree')", function (obj) {
-                var typeDom = layui.$('#deptId');
-                console.log(typeDom.val(), obj.param.nodeId);
-                console.log(typeDom.val() === obj.param.nodeId);
-                if (typeDom.val() === obj.param.nodeId) {
-                    typeDom.val('');
-                    layui.$("input[dtree-id='deptTree']").val('请选择');
-                } else {
-                    typeDom.val(obj.param.nodeId)
-                }
-            });*/
-
-            table.render({
-                elem: '#item-table'
-                , url: '/item/list'
-                , page: true
-                , height: 'full-20'
-                , toolbar: '#toolbar'
-                , smartReloadModel: true
-                , cols: [
-                    [
-                        { title: '操作', fixed: 'left', align: 'center', toolbar: '#column-toolbar' }
-                        , { type: 'checkbox' }
-                        , { type: 'numbers', title: '序号', sort: true, width: '5%' }
-                        , { field: 'id', title: 'ID', sort: true, width: '10%', hide: true }
-                        , { field: 'cid', title: '所属类目', width: 120, templet: '<div>{{sotitle(d.cid)}}</div>' }
-                        , { field: 'title', title: '商品标题', sort: true, width: '10%' }
-                        , { field: 'sellPoint', title: '商品卖点', sort: true, width: '260', totalRowText: '本页小计' }
-                        , { field: 'price', title: '商品价格', width: "120", templet: "#statusTpl1" }
-                        , { field: 'num', title: '库存数量', width: "12%", totalRow: true }
-                        , { field: 'barcode', title: '商品条码', width: "12%" }
-                        , { field: 'image', title: '商品图片', width: "80" }
-                        , { field: 'status', title: '商品状态', templet: "#statusTpl", sort: true, width: "160", totalRowText: '库存总额' }
-                        , { field: 'createTime', title: '创建时间', width: "120" }
-                        , { field: 'updateTime', title: '更新时间', width: "120" }
-                    ]
+                    , {field: 'createTime', title: '创建时间', width: "120"}
+                    , {field: 'updateTime', title: '更新时间', width: "120"}
                 ]
-            });
-
-            // 账号状态(正常/锁定)点击事件
-            form.on('switch(status)', function (data) {
-                if (data.elem.checked) {
-                    $.post('/user/' + data.value + '/enable', function (data) {
-                        handlerResult(data, enableDone);
-                    });
-                } else {
-                    if (data.value == 1) {
-                        layer.msg("管理员帐号不允许禁用！！！", { icon: 2 });
-                        table.reload('item-table');
-                        return false;
-                    }
-                    $.post('/user/' + data.value + '/disable', function (data) {
-                        handlerResult(data, disableDone);
-                    });
-                }
-            });
-
-            // 工具条点击事件
-            table.on('toolbar', function (obj) {
-                var data = obj.data;
-                var event = obj.event;
-
-                if (event === 'add') {
-                    add();
-                }
-            });
-
-            // 行点击事件 重置密码
-            table.on('tool', function (obj) {
-                var data = obj.data;
-                var event = obj.event;
-                if (event === 'edit') {
-                    edit(data.userId);
-                } else if (event === 'reset') {
-                    layer.open({
-                        content: '/user/' + data.userId + "/reset",
-                        title: "重置密码",
-                        area: ['500px', '200px'],
-                        type: 2,
-                        maxmin: true,
-                        shadeClose: true,
-                        end: function () {
-                            table.reload('item-table');
-                        }
-                    });
-                } else if (event === 'del') {
-                    del(obj);
-                }
-            });
-
-            function disableDone(data) {
-                parent.layer.msg("禁用成功", { icon: 6 });
-                table.reload('item-table');
-            }
-
-            function enableDone(data) {
-                parent.layer.msg("激活成功", { icon: 6 });
-                table.reload('item-table');
-            }
-
-            function add() {
-                layer.open({
-                    content: "/user",
-                    title: "新增用户",
-                    area: ['40%', '85%'],
-                    type: 2,
-                    maxmin: true,
-                    shadeClose: true,
-                    end: function () {
-                        table.reload('item-table');
-                    }
-                });
-            }
-
-            function del(obj) {
-                layer.confirm("确定删除用户吗?", { icon: 3, title: '提示' },
-                    function (index) {//确定回调
-                        var id = obj.data.userId;
-                        $.post('/user/' + id, { _method: "DELETE" }, function (data) {
-                            layer.close(index);
-                            handlerResult(data, deleteDone);
-                        });
-                    }, function (index) {//取消回调
-                        layer.close(index);
-                    }
-                );
-            }
-
-            function deleteDone(data) {
-                parent.layer.msg("删除成功", { icon: 6 });
-                table.reload('item-table');
-            }
-            function edit(id) {
-                console.log(id);
-                layer.open({
-                    content: '/user/' + id,
-                    title: "编辑",
-                    area: ['40%', '85%'],
-                    type: 2,
-                    maxmin: true,
-                    shadeClose: true,
-                    end: function () {
-                        table.reload('item-table');
-                    }
-                });
-            }
-            form.on('submit(search)', function (form) {
-                table.reload('item-table', {
-                    where: form.field
-                });
-                return false;
-            });
-
+            ]
         });
-        //将id变成内容，应用template模板
-        function sotitle(val) {
-            var name;
-            $.ajax({
-                type: "get",
-                url: "/item/cat/queryItemName",
-                data: { itemCatId: val },
-                cache: true,    //缓存
-                async: false,    //表示同步   默认的是异步的true
-                //dataType:"text",//表示返回值参数类型
-                success: function (data) {
-                    name = data;
+
+        // 账号状态(上架/下架)点击事件
+        form.on('switch(status)', function (data) {
+            if (data.elem.checked) {
+                $.post('/user/' + data.value + '/enable', function (data) {
+                    handlerResult(data, enableDone);
+                });
+            } else {
+                if (data.value == 1) {
+                    layer.msg("管理员帐号不允许禁用！！！", {icon: 2});
+                    table.reload('item-table');
+                    return false;
+                }
+                $.post('/user/' + data.value + '/disable', function (data) {
+                    handlerResult(data, disableDone);
+                });
+            }
+        });
+
+        // 工具条点击事件
+        table.on('toolbar', function (obj) {
+            var data = obj.data;
+            var event = obj.event;
+
+            if (event === 'add') {
+                add();
+            }
+        });
+
+        // 行点击事件 重置密码
+        table.on('tool', function (obj) {
+            var data = obj.data;
+            var event = obj.event;
+            if (event === 'edit') {
+                edit(data.userId);
+            } else if (event === 'reset') {
+                layer.open({
+                    content: '/user/' + data.userId + "/reset",
+                    title: "重置密码",
+                    area: ['500px', '200px'],
+                    type: 2,
+                    maxmin: true,
+                    shadeClose: true,
+                    end: function () {
+                        table.reload('item-table');
+                    }
+                });
+            } else if (event === 'del') {
+                del(obj);
+            }
+        });
+
+        function disableDone(data) {
+            parent.layer.msg("禁用成功", {icon: 6});
+            table.reload('item-table');
+        }
+
+        function enableDone(data) {
+            parent.layer.msg("激活成功", {icon: 6});
+            table.reload('item-table');
+        }
+
+        function add() {
+            layer.open({
+                content: "/user",
+                title: "新增用户",
+                area: ['40%', '85%'],
+                type: 2,
+                maxmin: true,
+                shadeClose: true,
+                end: function () {
+                    table.reload('item-table');
                 }
             });
-            return name;	//商品分类名称
-        };
+        }
+
+        function del(obj) {
+            layer.confirm("确定删除用户吗?", {icon: 3, title: '提示'},
+                function (index) {//确定回调
+                    var id = obj.data.userId;
+                    $.post('/user/' + id, {_method: "DELETE"}, function (data) {
+                        layer.close(index);
+                        handlerResult(data, deleteDone);
+                    });
+                }, function (index) {//取消回调
+                    layer.close(index);
+                }
+            );
+        }
+
+        function deleteDone(data) {
+            parent.layer.msg("删除成功", {icon: 6});
+            table.reload('item-table');
+        }
+
+        function edit(id) {
+            console.log(id);
+            layer.open({
+                content: '/user/' + id,
+                title: "编辑",
+                area: ['40%', '85%'],
+                type: 2,
+                maxmin: true,
+                shadeClose: true,
+                end: function () {
+                    table.reload('item-table');
+                }
+            });
+        }
+
+        form.on('submit(search)', function (form) {
+            table.reload('item-table', {
+                where: form.field
+            });
+            return false;
+        });
+
+    });
+
+    //将id变成内容，应用template模板
+    function sotitle(val) {
+        var name;
+        $.ajax({
+            type: "get",
+            url: "/item/cat/queryItemName",
+            data: {itemCatId: val},
+            cache: true,    //缓存
+            async: false,    //表示同步   默认的是异步的true
+            //dataType:"text",//表示返回值参数类型
+            success: function (data) {
+                name = data;
+            }
+        });
+        return name;	//商品分类名称
+    };
 
 
 </script>

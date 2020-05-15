@@ -142,9 +142,12 @@
     cursor: pointer;
 }
 
+/*
 .zadmin-search-area input {
     height: 32px;
+    vertical-align: bottom;
 }
+*/
 
 .zadmin-oper-area {
     font-size: 18px !important;
@@ -168,8 +171,13 @@
 }
  .layui-form-label{
      width: 100px;
+     height: 32px;
  }
 .layui-input-block {
     margin-left: 130px;
-    min-height: 36px
+}
+
+.layui-btn-primary-zadmin{
+    display: block;
+    margin: -5 auto;
 }
