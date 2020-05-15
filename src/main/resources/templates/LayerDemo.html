@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>登录页</title>
+    <link rel="shortcut icon" type="image/x-icon"/>
+    <link rel="stylesheet" th:href="@{/lib/layui/css/layui.css}">
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+</head>
+<style type="text/css">
+h3 {
+	color: red
+}
+
+span {
+	color: red;
+	font-size: 24px;
+}
+
+.blockquote {
+	color: #242424;
+	font-size: 24px;
+	font-family: 'Microsoft YaHei', 微软雅黑;
+	line-height: 40px
+}
+
+.blockquote1 {
+	background-color: #2f2f2f;
+	color: #FF6633;
+	font-size: 18px;
+	font-family: 'Microsoft YaHei', 微软雅黑;
+	line-height: 40px
+}
+
+.blockquote2 {
+	background-color: #2f2f2f;
+	color: #ffff00;
+	font-size: 16px;
+	font-family: 'Microsoft YaHei', 微软雅黑;
+	line-height: 40px
+}
+
+.blockquote3 {
+	background-color: #2f2f2f;
+	color: #ffff00;
+	font-size: 18px;
+	font-family: 'Microsoft YaHei', 微软雅黑;
+	line-height: 20px
+}
+</style>
+</head>
+
+<body>
+
+	<blockquote class="layui-elem-quote">
+		此演示通过layer独立组件封装，在程序中可以直接调用使用，与内置的layer模块，用法是完全一致的</blockquote>
+	<a class="layui-btn layui-btn-normal" href="http://layer.layui.com/"
+		target="_blank">前去layer官网</a>
+
+	<fieldset class="layui-elem-field layui-field-title site-demo-button"
+		style="margin-top: 30px;">
+		<legend>特殊例子-LayerTool演示</legend>
+	</fieldset>
+	<blockquote class="layui-elem-quote layui-quote-nm blockquote">
+		<p>文件头设置</p>
+		注意：如果你直接复制所有代码到本地，上述js路径需要改成你<span>本地</span>的
+
+	</blockquote>
+	<blockquote class="layui-elem-quote layui-quote-nm blockquote3">
+		<xmp> <script type="text/javascript" src="../layui/layui.js"
+			charset="utf-8"></script> <script type="text/javascript"
+			src="../js/jquery-1.8.2.js" charset="utf-8"></script> <script
+			type="text/javascript" src="../layui/layer/layer.js" charset="utf-8"></script>
+		<script type="text/javascript" src="../layui/layerTool.js"
+			charset="utf-8"></script> </xmp>
+	</blockquote>
+	<div class="layui-form-item">
+		<blockquote class="layui-elem-quote layui-quote-nm blockquote">
+			Alter</blockquote>
+		<blockquote class="layui-elem-quote layui-quote-nm blockquote2">
+			<button data-method="offset" onclick="Layer.showAlert('有问题了啊');"
+				class="layui-btn layui-btn-normal">alert</button>
+			<p>Layer.showAlert('有问题了啊'); //单引号内容可换，必填，窗口手动关闭。</p>
+		</blockquote>
+	</div>
+	<div class="layui-form-item">
+		<blockquote class="layui-elem-quote layui-quote-nm blockquote">
+			操作成功提示框</blockquote>
+		<blockquote class="layui-elem-quote layui-quote-nm blockquote2">
+			<button data-method="offset" onclick="Layer.showSucAlert();"
+				class="layui-btn layui-btn-normal">操作成功</button>
+			<p>
+				Layer.showSucAlert(); //默认值格式代码，不填写内容时默认值为<span>操作成功</span>。窗口自动关闭
+			</p>
+			<button data-method="offset"
+				onclick="Layer.showSucAlert('小样的，终于成功了');"
+				class="layui-btn layui-btn-normal">小样的，终于成功了</button>
+			<p>Layer.showSucAlert('小样的，终于成功了'); //单引号内容可换，可不填。窗口自动关闭</p>
+		</blockquote>
+	</div>
+
+	<div class="layui-form-item">
+		<blockquote class="layui-elem-quote layui-quote-nm blockquote">
+			操作成功提示框+自定义提示内容+回调方法</blockquote>
+		<blockquote class="layui-elem-quote layui-quote-nm blockquote2">
+			<button data-method="offset"
+				onclick="Layer.showSucAlert('小样的，我终于成功了',showCall);"
+				class="layui-btn layui-btn-normal">操作成功提示框+自定义提示内容+回调方法</button>
+			<p>Layer.showSucAlert('小样的，我终于成功了',showCall);
+				//单引号内容可换，必填。窗口关闭后，有回调信息返回</p>
+			<p></p>
+			<code>
+				<p>function showCall(index)</p>
+				{
+			</p>
+			<p>layer.alert("我是回调奥"+index);</p>
+			<p>Layer.closeLayer(index);</p>
+			}
+			</code>
+		</blockquote>
+	</div>
+
+	<div class="layui-form-item">
+		<blockquote class="layui-elem-quote layui-quote-nm blockquote">
+			操作失败提示框</blockquote>
+		<blockquote class="layui-elem-quote layui-quote-nm blockquote2">
+			<button data-method="offset" onclick="Layer.showFailAlert();"
+				class="layui-btn layui-btn-normal">操作失败</button>
+			<p>
+				Layer.showFailAlert(); //默认值格式代码，默认值为<span>操作失败</span>。窗口不自动关闭
+			</p>
+			<button data-method="offset" onclick="Layer.showFailAlert('我失败了',0);"
+				class="layui-btn layui-btn-normal">操作失败提示框+自定义提示内容+不自动关闭</button>
+			<p>Layer.showFailAlert('我失败了',0);
+				//单引号内容可换，必填。窗口不自动关闭，参数为0，表示不自动关窗</p>
+			<button data-method="offset"
+				onclick="Layer.showFailAlert('我失败了',1000);"
+				class="layui-btn layui-btn-normal">操作失败提示框+自定义提示内容+自动关闭</button>
+			<p>Layer.showFailAlert('我失败了',1000);
+				//单引号内容可换，必填。窗口不自动关闭，参数为1000(1秒)，表示1秒后自动关窗</p>
+		</blockquote>
+	</div>
+
+	<div class="layui-form-item">
+		<blockquote class="layui-elem-quote layui-quote-nm blockquote">
+			OpenDialog【对话框、对话框+自定义宽、对话框+自定义宽高】</blockquote>
+		<blockquote class="layui-elem-quote layui-quote-nm blockquote2">
+			<button onclick="Layer.openDialog('我是Open窗口','#');"
+				class="layui-btn layui-btn-normal">对话框</button>
+			<p>
+				Layer.openDialog('我是Open窗口','#'); //单引号标题内容可换，必填，<span>#</span>号为链接地址。
+			</p>
+			<p>
+				<span>注:此方法为top.layer.open弹窗，有放大缩小按钮</span>
+			</p>
+			<button onclick="Layer.openDialog('我是Open窗口','#',30);"
+				class="layui-btn layui-btn-normal">对话框+自定义宽</button>
+			<p>
+				Layer.openDialog('我是Open窗口','#',30); //单引号标题内容可换，必填，<span>#</span>号为链接地址,<span>30</span>为宽，单位为<span>%</span>。
+			</p>
+			<p>
+				<span>注:此方法为top.layer.open弹窗，有放大缩小按钮</span>
+			</p>
+			<button onclick="Layer.openDialog('我是Open窗口','#',30,50);"
+				class="layui-btn layui-btn-normal">对话框+自定义宽高</button>
+			<p>
+				Layer.openDialog('我是Open窗口','#',30,50); //单引号标题内容可换，必填，<span>#</span>号为链接地址,<span>30</span>为宽，<span>50</span>为高，单位为<span>%</span>。
+			</p>
+			<p>
+				<span>注:此方法为top.layer.open弹窗，有放大缩小按钮</span>
+			</p>
+		</blockquote>
+	</div>
+	<div class="layui-form-item">
+		<blockquote class="layui-elem-quote layui-quote-nm blockquote">
+			OpenDialog【对话框、对话框+自定义宽、对话框+自定义宽高】<span>本系统弹窗使用的方法</span>
+		</blockquote>
+		<blockquote class="layui-elem-quote layui-quote-nm blockquote2">
+			<button onclick="Layer.openDialog1('我是Open窗口','#');"
+				class="layui-btn layui-btn-normal">对话框</button>
+			<p>
+				Layer.openDialog1('我是Open窗口','#'); //单引号标题内容可换，必填，<span>#</span>号为链接地址。
+			</p>
+			<p>
+				<span>注:此方法为layer.open弹窗，无放大缩小按钮</span>
+			</p>
+			<button onclick="Layer.openDialog1('我是Open窗口','#',30);"
+				class="layui-btn layui-btn-normal">对话框+自定义宽</button>
+			<p>
+				Layer.openDialog1('我是Open窗口','#',30); //单引号标题内容可换，必填，<span>#</span>号为链接地址,<span>30</span>为宽，单位为<span>%</span>。
+			</p>
+			<p>
+				<span>注:此方法为layer.open弹窗，无放大缩小按钮</span>
+			</p>
+			<button onclick="Layer.openDialog1('我是Open窗口','#',30,50);"
+				class="layui-btn layui-btn-normal">对话框+自定义宽高</button>
+			<p>
+				Layer.openDialog1('我是Open窗口','#',30,50); //单引号标题内容可换，必填，<span>#</span>号为链接地址,<span>30</span>为宽，<span>50</span>为高，单位为<span>%</span>。
+			</p>
+			<p>
+				<span>注:此方法为layer.open弹窗，无放大缩小按钮</span>
+			</p>
+		</blockquote>
+	</div>
+
+	<div class="layui-form-item">
+		<blockquote class="layui-elem-quote layui-quote-nm blockquote">
+			Message</blockquote>
+		<blockquote class="layui-elem-quote layui-quote-nm blockquote2">
+			<button data-method="offset" onclick="Layer.showMsg('我只是简单的提示一下');"
+				class="layui-btn layui-btn-normal">提示框</button>
+			<p>Layer.showMsg('我只是简单的提示一下');
+				//简单的提示框，与官方的layer.msg操作一样。</p>
+			<p></p>
+			<button data-method="offset" onclick="Layer.showSucMsg('我是成功的提示框');"
+				class="layui-btn layui-btn-normal">成功的提示框</button>
+				<p>Layer.showSucMsg('我是成功的提示框');
+				//与官方的操作一样，但本封装js自动增加了图标，直接添加显示内容即可，比官方简单一点。</p>
+		</blockquote>
+	</div>
+	<div class="layui-form-item">
+		<blockquote class="layui-elem-quote layui-quote-nm blockquote">
+			Confirm【提示确认框】</blockquote>
+		<blockquote class="layui-elem-quote layui-quote-nm blockquote2">
+			<button data-method="offset"
+				onclick="Layer.showConfirm('你确定要这样操作吗',function(index){layer.alert('是的')});"
+				class="layui-btn layui-btn-normal">Confirm对话框</button>
+			<p>Layer.showConfirm('你确定要这样操作吗',function(index){layer.alert('是的')});</p>
+	<p>提示内容及回调函数，与官方操作一样。</p>
+			 /**
+     * 显示验证框
+     * @param {} content   提示内容
+     * @param {} yesFunction 确定以后的回调函数
+     function(index){layer.alert('是的')}
+     */
+			<p></p>
+		</blockquote>
+	</div>
+
+ <div class="layui-form-item">
+    <blockquote class="layui-elem-quote layui-quote-nm blockquote">
+      showTips【提示框】
+      </blockquote>
+   <div class="layui-inline">
+      <label class="layui-form-label" style="width: 300px;"></label>
+      <div class="layui-input-inline">
+       <input style="width: 300px;" id="parameter" placeholder="【#parameter】提示显示在这里" autocomplete="off" class="layui-input" readonly>
+       <input style="width: 300px;" id="parameter1" placeholder="【#parameter1】提示显示在这里" autocomplete="off" class="layui-input" readonly>  
+      </div>
+    </div>
+    <blockquote class="layui-elem-quote layui-quote-nm blockquote2">
+			<button data-method="offset"
+				onclick="Layer.showTips();"
+				class="layui-btn layui-btn-normal">Tips提示框</button>
+			<p>Layer.showTips();</p>
+			<p>未填写任何参数，默认提示内容为<span>项目不详</span>,弹窗指向ID为<span>#parameter</span>的输入框</p>
+		</blockquote>
+    <blockquote class="layui-elem-quote layui-quote-nm blockquote2">
+			<button data-method="offset"
+				onclick="Layer.showTips('请输入您的手机号码！');"
+				class="layui-btn layui-btn-normal">Tips提示框</button>
+			<p>Layer.showTips('请输入您的手机号码！');</p>
+			<p>显示已填写的内容<span>请输入您的手机号码！</span>,因未填写指定ID参数，弹窗指向ID为<span>#parameter</span>的输入框</p>
+		</blockquote>
+	<blockquote class="layui-elem-quote layui-quote-nm blockquote2">
+			<button data-method="offset"
+				onclick="Layer.showTips('请输入您的手机号码139XXXXXXXX！','#parameter1');"
+				class="layui-btn layui-btn-normal">Tips提示框</button>
+			<p>Layer.showTips('请输入您的手机号码139XXXXXXXX！','#parameter1');</p>
+			<p>显示已填写的内容<span>请输入您的手机号码139XXXXXXXX！</span>,已填写指定ID参数，弹窗指向ID为<span>#parameter1</span>的输入框</p>
+		</blockquote>
+  </div>
+
+
+
+<div class="layui-form-item">
+		<blockquote class="layui-elem-quote layui-quote-nm blockquote">
+			load加载提示条</blockquote>
+		<blockquote class="layui-elem-quote layui-quote-nm blockquote2">
+			<button data-method="offset" onclick="Layer.openDialogLoad();"
+				class="layui-btn layui-btn-normal">load加载</button>
+			<p>
+				Layer.openDialogLoad(); //默认值格式代码，不填写内容时默认值为<span>数据加载中，请稍候!</span>。窗口自动关闭
+			</p>
+			<button data-method="offset"
+				onclick="Layer.openDialogLoad('数据疯狂加载中，等等吧!');"
+				class="layui-btn layui-btn-normal">load加载+自定义内容</button>
+			<p>Layer.openDialogLoad("数据疯狂加载中，你还是等等吧!"); //默认值格式代码，填写内容时显示为<span>数据疯狂加载中，你还是等等吧!</span>。窗口自动关闭</p>
+			<p><span>请不要超过30个字符</span>
+		</blockquote>
+	</div>
+
+
+	<script type="text/javascript">
+		function showCall(index) {
+			layer.alert("我是回调奥" + index);
+			Layer.closeLayer(index);
+		}
+	</script>
+	<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+    <script th:src="@{/lib/jquery/jquery.min.js}"></script>
+    <script th:src="@{/lib/layer/layer.js}"></script>
+    <script th:src="@{/js/layerTool.js}"></script>
+
+
+</body>
+</html>

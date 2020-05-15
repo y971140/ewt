@@ -1,0 +1,238 @@
+2020-05-15 00:00:10.956  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Validating all active sessions...
+2020-05-15 00:00:10.964  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Finished session validation.  No sessions were stopped.
+2020-05-15 00:00:51.843  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Validating all active sessions...
+2020-05-15 00:00:51.849  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Finished session validation.  No sessions were stopped.
+2020-05-15 00:04:18.226  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Validating all active sessions...
+2020-05-15 00:04:18.229  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Finished session validation.  No sessions were stopped.
+2020-05-15 00:06:20.577  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Validating all active sessions...
+2020-05-15 00:06:20.582  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Finished session validation.  No sessions were stopped.
+2020-05-15 00:07:22.895  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Validating all active sessions...
+2020-05-15 00:07:22.897  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Finished session validation.  No sessions were stopped.
+2020-05-15 00:07:30.695  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Validating all active sessions...
+2020-05-15 00:07:30.696  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Finished session validation.  No sessions were stopped.
+2020-05-15 00:12:59.215  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Validating all active sessions...
+2020-05-15 00:12:59.220  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Finished session validation.  No sessions were stopped.
+2020-05-15 00:13:04.952  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Validating all active sessions...
+2020-05-15 00:13:04.967  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Finished session validation.  No sessions were stopped.
+2020-05-15 00:13:59.940  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Validating all active sessions...
+2020-05-15 00:13:59.942  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Finished session validation.  No sessions were stopped.
+2020-05-15 00:21:07.280  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Validating all active sessions...
+2020-05-15 00:21:07.285  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Finished session validation.  No sessions were stopped.
+2020-05-15 00:23:45.923  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Validating all active sessions...
+2020-05-15 00:23:45.924  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Finished session validation.  No sessions were stopped.
+2020-05-15 00:25:28.067  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Validating all active sessions...
+2020-05-15 00:25:28.072  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Finished session validation.  No sessions were stopped.
+2020-05-15 00:25:40.478  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Validating all active sessions...
+2020-05-15 00:25:40.479  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Finished session validation.  No sessions were stopped.
+2020-05-15 00:26:01.806  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Validating all active sessions...
+2020-05-15 00:26:01.808  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Finished session validation.  No sessions were stopped.
+2020-05-15 00:26:09.793  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Validating all active sessions...
+2020-05-15 00:26:09.795  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Finished session validation.  No sessions were stopped.
+2020-05-15 00:26:34.542  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Validating all active sessions...
+2020-05-15 00:26:34.543  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Finished session validation.  No sessions were stopped.
+2020-05-15 00:27:27.321  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Validating all active sessions...
+2020-05-15 00:27:27.322  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Finished session validation.  No sessions were stopped.
+2020-05-15 00:30:04.133  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Validating all active sessions...
+2020-05-15 00:30:04.134  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Finished session validation.  No sessions were stopped.
+2020-05-15 00:31:49.058  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Validating all active sessions...
+2020-05-15 00:31:49.062  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Finished session validation.  No sessions were stopped.
+2020-05-15 00:31:53.647  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Validating all active sessions...
+2020-05-15 00:31:53.650  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Finished session validation.  No sessions were stopped.
+2020-05-15 00:32:53.231  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Validating all active sessions...
+2020-05-15 00:32:53.233  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Finished session validation.  No sessions were stopped.
+2020-05-15 00:35:35.468  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Validating all active sessions...
+2020-05-15 00:35:35.470  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Finished session validation.  No sessions were stopped.
+2020-05-15 00:41:14.232  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Validating all active sessions...
+2020-05-15 00:41:14.234  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Finished session validation.  No sessions were stopped.
+2020-05-15 00:45:12.669  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Validating all active sessions...
+2020-05-15 00:45:12.671  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Finished session validation.  No sessions were stopped.
+2020-05-15 00:46:59.385  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Validating all active sessions...
+2020-05-15 00:46:59.387  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Finished session validation.  No sessions were stopped.
+2020-05-15 00:47:49.890  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Validating all active sessions...
+2020-05-15 00:47:49.892  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Finished session validation.  No sessions were stopped.
+2020-05-15 00:49:06.451  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Validating all active sessions...
+2020-05-15 00:49:06.453  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Finished session validation.  No sessions were stopped.
+2020-05-15 00:51:22.746  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Validating all active sessions...
+2020-05-15 00:51:22.752  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Finished session validation.  No sessions were stopped.
+2020-05-15 00:54:50.694  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Validating all active sessions...
+2020-05-15 00:54:50.696  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Finished session validation.  No sessions were stopped.
+2020-05-15 00:58:40.522  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Validating all active sessions...
+2020-05-15 00:58:40.524  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Finished session validation.  No sessions were stopped.
+2020-05-15 01:00:10.955  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Validating all active sessions...
+2020-05-15 01:00:10.957  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Finished session validation.  No sessions were stopped.
+2020-05-15 01:00:51.843  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Validating all active sessions...
+2020-05-15 01:00:51.845  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Finished session validation.  No sessions were stopped.
+2020-05-15 01:04:18.227  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Validating all active sessions...
+2020-05-15 01:04:18.231  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Finished session validation.  No sessions were stopped.
+2020-05-15 01:06:20.577  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Validating all active sessions...
+2020-05-15 01:06:20.582  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Finished session validation.  No sessions were stopped.
+2020-05-15 01:07:22.895  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Validating all active sessions...
+2020-05-15 01:07:22.896  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Finished session validation.  No sessions were stopped.
+2020-05-15 01:07:30.696  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Validating all active sessions...
+2020-05-15 01:07:30.697  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Finished session validation.  No sessions were stopped.
+2020-05-15 01:12:59.217  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Validating all active sessions...
+2020-05-15 01:12:59.218  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Finished session validation.  No sessions were stopped.
+2020-05-15 01:13:04.953  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Validating all active sessions...
+2020-05-15 01:13:04.954  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Finished session validation.  No sessions were stopped.
+2020-05-15 01:13:59.941  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Validating all active sessions...
+2020-05-15 01:13:59.942  INFO 8668 --- [SessionValidationThread-1] a.s.s.m.AbstractValidatingSessionManager : Finished session validation.  No sessions were stopped.
+2020-05-15 16:33:35.419  INFO 2080 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-05-15 16:33:35.422  INFO 2080 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-05-15 16:33:36.664  INFO 2080 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-05-15 16:33:36.666  INFO 2080 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-05-15 16:33:36.721  INFO 2080 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 42ms. Found 0 Redis repository interfaces.
+2020-05-15 16:33:37.185  INFO 2080 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'shiroActionProperties' of type [im.zhaojun.common.shiro.ShiroActionProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-15 16:33:37.188  INFO 2080 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'OAuth2Helper' of type [im.zhaojun.common.shiro.OAuth2Helper] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-15 16:33:37.212  INFO 2080 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'shiroConfig' of type [im.zhaojun.common.config.ShiroConfig$$EnhancerBySpringCGLIB$$6b59502c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-15 16:33:37.734  INFO 2080 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisManager' of type [org.crazycake.shiro.RedisManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-15 16:33:37.741  INFO 2080 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisSessionDAO' of type [org.crazycake.shiro.RedisSessionDAO] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-15 16:33:37.748  INFO 2080 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sessionManager' of type [org.apache.shiro.web.session.mgt.DefaultWebSessionManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-15 16:33:37.761  INFO 2080 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration' of type [org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-15 16:33:37.766  INFO 2080 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'spring.redis-org.springframework.boot.autoconfigure.data.redis.RedisProperties' of type [org.springframework.boot.autoconfigure.data.redis.RedisProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-15 16:33:37.771  INFO 2080 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.autoconfigure.data.redis.LettuceConnectionConfiguration' of type [org.springframework.boot.autoconfigure.data.redis.LettuceConnectionConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-15 16:33:37.835  INFO 2080 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'lettuceClientResources' of type [io.lettuce.core.resource.DefaultClientResources] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-15 16:33:37.887  INFO 2080 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisConnectionFactory' of type [org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-15 16:33:37.935  INFO 2080 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisTemplate' of type [org.springframework.data.redis.core.RedisTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-15 16:33:37.956  INFO 2080 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'hashedCredentialsMatcher' of type [im.zhaojun.common.shiro.credential.RetryLimitHashedCredentialsMatcher] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-15 16:33:37.962  INFO 2080 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisCacheManager' of type [org.crazycake.shiro.RedisCacheManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-15 16:33:38.039  INFO 2080 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'mybatis-plus-com.baomidou.mybatisplus.autoconfigure.MybatisPlusProperties' of type [com.baomidou.mybatisplus.autoconfigure.MybatisPlusProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-15 16:33:38.046  INFO 2080 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration' of type [com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration$$EnhancerBySpringCGLIB$$7a963ce8] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-15 16:33:38.049  INFO 2080 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure' of type [com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure$$EnhancerBySpringCGLIB$$5679c5c0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-15 16:33:38.052  INFO 2080 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2020-05-15 16:33:38.094  INFO 2080 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'spring.datasource-org.springframework.boot.autoconfigure.jdbc.DataSourceProperties' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-15 16:33:38.101  INFO 2080 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'com.alibaba.druid.spring.boot.autoconfigure.stat.DruidFilterConfiguration' of type [com.alibaba.druid.spring.boot.autoconfigure.stat.DruidFilterConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-15 16:33:38.118  INFO 2080 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'statFilter' of type [com.alibaba.druid.filter.stat.StatFilter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-15 16:33:39.034  INFO 2080 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2020-05-15 16:33:39.034  INFO 2080 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'dataSource' of type [com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceWrapper] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-15 16:33:39.065  INFO 2080 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.autoconfigure.jdbc.DataSourceInitializerInvoker' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceInitializerInvoker] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-15 16:33:39.077  INFO 2080 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'myMetaObjectHandler' of type [im.zhaojun.common.config.MyMetaObjectHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-15 16:33:39.394  INFO 2080 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sqlSessionFactory' of type [org.apache.ibatis.session.defaults.DefaultSqlSessionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-15 16:33:39.401  INFO 2080 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'sqlSessionTemplate' of type [org.mybatis.spring.SqlSessionTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-15 16:33:39.404  INFO 2080 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'userMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-15 16:33:39.407  INFO 2080 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'userMapper' of type [com.sun.proxy.$Proxy117] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-15 16:33:39.410  INFO 2080 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'menuMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-15 16:33:39.411  INFO 2080 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'menuMapper' of type [com.sun.proxy.$Proxy118] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-15 16:33:39.414  INFO 2080 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'roleMenuMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-15 16:33:39.415  INFO 2080 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'roleMenuMapper' of type [com.sun.proxy.$Proxy119] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-15 16:33:39.418  INFO 2080 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'operatorMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-15 16:33:39.419  INFO 2080 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'operatorMapper' of type [com.sun.proxy.$Proxy120] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-15 16:33:39.419  INFO 2080 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'menuService' of type [im.zhaojun.system.service.MenuService] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-15 16:33:39.429  INFO 2080 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'userRoleMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-15 16:33:39.430  INFO 2080 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'userRoleMapper' of type [com.sun.proxy.$Proxy121] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-15 16:33:39.432  INFO 2080 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'userAuthsMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-15 16:33:39.433  INFO 2080 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'userAuthsMapper' of type [com.sun.proxy.$Proxy122] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-15 16:33:39.434  INFO 2080 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'userAuthsService' of type [im.zhaojun.system.service.UserAuthsService] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-15 16:33:39.435  INFO 2080 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'userService' of type [im.zhaojun.system.service.UserService] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-15 16:33:39.442  INFO 2080 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'userNameRealm' of type [im.zhaojun.common.shiro.realm.UserNameRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-15 16:33:39.451  INFO 2080 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'oAuth2GithubRealm' of type [im.zhaojun.common.shiro.realm.OAuth2GithubRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-15 16:33:39.454  INFO 2080 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'oAuth2GiteeRealm' of type [im.zhaojun.common.shiro.realm.OAuth2GiteeRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-15 16:33:39.459  INFO 2080 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'securityManager' of type [org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-15 16:33:39.492  INFO 2080 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'roleOperatorMapper' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-15 16:33:39.493  INFO 2080 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'roleOperatorMapper' of type [com.sun.proxy.$Proxy123] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-15 16:33:39.494  INFO 2080 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'operatorService' of type [im.zhaojun.system.service.OperatorService] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-15 16:33:39.495  INFO 2080 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'shiroService' of type [im.zhaojun.system.service.ShiroService] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-15 16:33:40.202  INFO 2080 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8090 (http)
+2020-05-15 16:33:40.212  INFO 2080 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-05-15 16:33:40.212  INFO 2080 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.33]
+2020-05-15 16:33:40.297  INFO 2080 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-05-15 16:33:40.297  INFO 2080 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 4832 ms
+2020-05-15 16:33:40.747  WARN 2080 --- [restartedMain] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][restartedMain] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2020-05-15 16:33:41.250  INFO 2080 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-05-15 16:33:41.329  INFO 2080 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-05-15 16:33:41.735  INFO 2080 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-05-15 16:33:41.798  INFO 2080 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-05-15 16:33:41.835  INFO 2080 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-05-15 16:33:42.318  INFO 2080 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-05-15 16:33:42.337  INFO 2080 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-05-15 16:33:42.398  INFO 2080 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-05-15 16:33:42.548  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: errorUsingGET_1
+2020-05-15 16:33:42.603  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingGET_1
+2020-05-15 16:33:42.604  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingGET_2
+2020-05-15 16:33:42.628  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getListUsingGET_1
+2020-05-15 16:33:42.629  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingGET_3
+2020-05-15 16:33:42.631  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addUsingGET_1
+2020-05-15 16:33:42.637  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addUsingPOST_1
+2020-05-15 16:33:42.639  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingGET_1
+2020-05-15 16:33:42.639  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingHEAD_1
+2020-05-15 16:33:42.640  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingPOST_1
+2020-05-15 16:33:42.641  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingPUT_1
+2020-05-15 16:33:42.642  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingPATCH_1
+2020-05-15 16:33:42.643  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_1
+2020-05-15 16:33:42.644  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingOPTIONS_1
+2020-05-15 16:33:42.644  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingTRACE_1
+2020-05-15 16:33:42.645  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getListUsingGET_2
+2020-05-15 16:33:42.646  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingGET_4
+2020-05-15 16:33:42.648  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: swapSortUsingPOST_1
+2020-05-15 16:33:42.649  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: treeUsingGET_1
+2020-05-15 16:33:42.650  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: treeAndRootUsingGET_1
+2020-05-15 16:33:42.652  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_1
+2020-05-15 16:33:42.654  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: errorUsingGET_2
+2020-05-15 16:33:42.655  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingGET_5
+2020-05-15 16:33:42.663  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_1
+2020-05-15 16:33:42.664  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_2
+2020-05-15 16:33:42.669  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addUsingPOST_2
+2020-05-15 16:33:42.670  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addUsingGET_2
+2020-05-15 16:33:42.671  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingGET_2
+2020-05-15 16:33:42.671  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingHEAD_2
+2020-05-15 16:33:42.672  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingPOST_2
+2020-05-15 16:33:42.673  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingPUT_2
+2020-05-15 16:33:42.673  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingPATCH_2
+2020-05-15 16:33:42.674  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_2
+2020-05-15 16:33:42.674  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingOPTIONS_2
+2020-05-15 16:33:42.675  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingTRACE_2
+2020-05-15 16:33:42.676  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getListUsingGET_3
+2020-05-15 16:33:42.677  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingGET_6
+2020-05-15 16:33:42.678  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: treeUsingGET_2
+2020-05-15 16:33:42.679  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingGET_1
+2020-05-15 16:33:42.680  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_2
+2020-05-15 16:33:42.690  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addUsingPOST_3
+2020-05-15 16:33:42.691  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addUsingGET_3
+2020-05-15 16:33:42.707  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingGET_3
+2020-05-15 16:33:42.709  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingHEAD_3
+2020-05-15 16:33:42.710  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingPOST_3
+2020-05-15 16:33:42.711  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingPUT_3
+2020-05-15 16:33:42.713  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingPATCH_3
+2020-05-15 16:33:42.714  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_3
+2020-05-15 16:33:42.715  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingOPTIONS_3
+2020-05-15 16:33:42.717  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingTRACE_3
+2020-05-15 16:33:42.741  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getListUsingGET_4
+2020-05-15 16:33:42.742  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingGET_7
+2020-05-15 16:33:42.745  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingGET_2
+2020-05-15 16:33:42.747  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addUsingGET_4
+2020-05-15 16:33:42.750  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addUsingPOST_4
+2020-05-15 16:33:42.752  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingGET_4
+2020-05-15 16:33:42.752  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingHEAD_4
+2020-05-15 16:33:42.753  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingPOST_4
+2020-05-15 16:33:42.754  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingPUT_4
+2020-05-15 16:33:42.755  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingPATCH_4
+2020-05-15 16:33:42.755  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_4
+2020-05-15 16:33:42.756  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingOPTIONS_4
+2020-05-15 16:33:42.757  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingTRACE_4
+2020-05-15 16:33:42.762  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getListUsingGET_5
+2020-05-15 16:33:42.767  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingGET_8
+2020-05-15 16:33:42.768  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingGET_3
+2020-05-15 16:33:42.770  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_3
+2020-05-15 16:33:42.776  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getListUsingGET_6
+2020-05-15 16:33:42.776  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingGET_9
+2020-05-15 16:33:42.778  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingGET_10
+2020-05-15 16:33:42.788  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addUsingPOST_5
+2020-05-15 16:33:42.790  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_5
+2020-05-15 16:33:42.811  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getListUsingGET_7
+2020-05-15 16:33:42.812  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingGET_11
+2020-05-15 16:33:42.815  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_4
+2020-05-15 16:33:42.820  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addUsingPOST_6
+2020-05-15 16:33:42.821  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addUsingGET_5
+2020-05-15 16:33:42.823  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingPOST_5
+2020-05-15 16:33:42.825  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: disableUsingPOST_1
+2020-05-15 16:33:42.826  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: enableUsingPOST_1
+2020-05-15 16:33:42.835  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getListUsingGET_8
+2020-05-15 16:33:42.836  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingGET_12
+2020-05-15 16:33:42.839  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingGET_4
+2020-05-15 16:33:42.841  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_5
+2020-05-15 16:33:42.845  INFO 2080 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingGET_13
+2020-05-15 16:33:42.925  INFO 2080 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8090 (http) with context path ''
+2020-05-15 16:33:44.066  INFO 2080 --- [RMI TCP Connection(3)-192.168.2.219] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-05-15 16:33:44.066  INFO 2080 --- [RMI TCP Connection(3)-192.168.2.219] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-05-15 16:33:44.078  INFO 2080 --- [RMI TCP Connection(3)-192.168.2.219] o.s.web.servlet.DispatcherServlet        : Completed initialization in 12 ms
+2020-05-15 16:33:44.761  INFO 2080 --- [boundedElastic-1] io.lettuce.core.EpollProvider            : Starting without optional epoll library
+2020-05-15 16:33:44.762  INFO 2080 --- [boundedElastic-1] io.lettuce.core.KqueueProvider           : Starting without optional kqueue library
