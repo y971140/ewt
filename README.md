@@ -114,4 +114,4 @@ QQ 群号: [49299654]
 
 ![](https://github.com/y971140/ewt/blob/master/src/main/resources/static/images/20200515171749.png)
 ![](<img src="https://github.com/y971140/ewt/blob/master/src/main/resources/static/images/20200515171749.png" alt="QQ群：49299654" style="zoom: 33%;" />)
-[![img](https://raw.githubusercontent.com/y971140/ewt/master/src/main/resources/static/images/20200515171749.png)]
+[![img](https://github.com/y971140/ewt/blob/master/src/main/resources/static/images/20200515171749.png?raw=true)]
