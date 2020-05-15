@@ -112,4 +112,4 @@ cache:
 
 QQ 群号: [49299654]
 
-[<img src="C:\Users\admin\Desktop\微信截图_20200515171749.png" alt="微信截图_20200515171749" style="zoom: 33%;" />]
+[<img src="https://github.com/y971140/ewt/blob/master/src/main/resources/static/images/20200515171749.png" alt="QQ群：49299654" style="zoom: 33%;" />]
