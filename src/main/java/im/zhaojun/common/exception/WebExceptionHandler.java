@@ -114,6 +114,16 @@ public class WebExceptionHandler {
         }
         return generateErrorInfo(ResultBean.FAIL, "已使用的供应商不能删除");
     }
+    /**
+     * 判断供应商名称是否重复
+     */
+    @ExceptionHandler
+    public String lockedAccount(DuplicateProviderNameException e) {
+        if (log.isDebugEnabled()) {
+            log.debug("供应商名称已存在");
+        }
+        return generateErrorInfo(ResultBean.FAIL, "供应商名称已存在");
+    }
 
     @ExceptionHandler
     public String lockedAccount(CaptchaIncorrectException e) {
@@ -126,7 +136,7 @@ public class WebExceptionHandler {
     @ExceptionHandler
     public String lockedAccount(DuplicateNameException e) {
         if (log.isDebugEnabled()) {
-            log.debug("名称已存在");
+            log.debug("用户名已存在");
         }
         return generateErrorInfo(ResultBean.FAIL, "用户名已存在");
     }

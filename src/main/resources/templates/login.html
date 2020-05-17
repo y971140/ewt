@@ -16,7 +16,7 @@
         <header class="layui-elip">登录</header>
         <form class="layui-form">
             <div class="layui-input-inline">
-                <input type="text" name="username" lay-verify="required" lay-vertype="tips" placeholder="管理员 admin 普通用户 user" autocomplete="off"
+                <input type="text"   name="username" lay-verify="required" lay-vertype="tips" placeholder="管理员 admin 普通用户 user" autocomplete="off"
                        class="layui-input">
             </div>
             <div class="layui-input-inline">
@@ -51,7 +51,13 @@
     <script th:src="@{/js/common.js}"></script>
 
     <script type="text/javascript">
-
+        window.onload=function () {
+            var input = document.getElementsByName('username')[0];
+            var val = input.value;
+            input.focus();
+            input.value = '';
+            input.value = val;
+        }
         function oauth2_github() {
             $.get('/oauth2/render/github', function (data) {
                 console.log(data);

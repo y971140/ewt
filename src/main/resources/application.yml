@@ -1,6 +1,5 @@
 server:
   port: 8090
-
 spring:
   profiles:
     active:
@@ -55,7 +54,6 @@ spring:
         #下面这两个配置，可以在每次连接的时候判断一些连接是否有效
       test-on-borrow: true
       test-while-idle: true
-  
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone:
@@ -74,6 +72,9 @@ spring:
     default-encoding: utf-8
   mvc:
     throw-exception-if-no-handler-found: true
+    hiddenmethod:
+      filter:
+        enabled: true  #解决POST提交时Request method 'POST' not supported的问题
   resources:
     add-mappings:  true 
   thymeleaf:

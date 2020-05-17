@@ -21,7 +21,7 @@ public interface ProviderService {
 
 	int deleteAllProvider(Long[] id);
 
-	public void updateItem(Provider provider);
+	void updateItem(Provider provider);
 
 	Provider selectOne(Integer id);
 	

@@ -6,6 +6,7 @@ import im.zhaojun.common.util.PageResultBean;
 import im.zhaojun.common.util.ResultBean;
 import im.zhaojun.common.validate.groups.Create;
 import im.zhaojun.system.model.Provider;
+import im.zhaojun.system.model.User;
 import im.zhaojun.system.service.ProviderService;
 import im.zhaojun.system.service.RoleService;
 import io.swagger.annotations.ApiImplicitParam;
@@ -17,6 +18,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -56,16 +58,17 @@ public class ProviderController {
 		return ResultBean.success(providerService.add(provider));
 	}
 	
-	@OperationLog("修改供应商")
+	@OperationLog("修改供应商-获取内容")
 	@GetMapping("/{id}")
 	public String update(@PathVariable("id") Integer id, Model model) {
-		//model.addAttribute("provider", providerService.selectOne(id));
+		model.addAttribute("provider", providerService.selectOne(id));
 		return "provider/provider-add";
 	}
+
 		@OperationLog("修改供应商")
-		@PostMapping("/{id}")
+		@PutMapping
 		@ResponseBody
-		public ResultBean update(Provider provider) {
+		public ResultBean update(@Valid Provider provider ) {
 			providerService.updateItem(provider);
 			return ResultBean.success();
 		}

@@ -4,14 +4,14 @@ layui.config({
     var table = layui.table;
     var $ = layui.$;
     var form = layui.form;
-    //防止弹窗
+  /*  //防止弹窗
     $(document).keydown(function (event) {
         if (event.keyCode == 13 || event.keyCode == 32) {
             $("*").blur();//去掉焦点
             if ($(".layui-layer-btn0").length > 0)
                 parent.layer.closeAll();
         }
-    });
+    });*/
     //$('body').off('click').on('click', 'button', function () { $(this).blur(); })
 
     table.render({
@@ -114,14 +114,31 @@ form.on('submit(search)', function (form) {
         }
     });
 
-    function add() {
+  /*  function add() {
         Layer.openDialog1('新增供应商', '/provider', 40, 80);
-    }
+    }*/
 
     /*  function edit(id) {
             Layer.openDialog1('修改供应商', '/provider/'+id, 40, 80);
         } */
-
+    function add() {
+        layer.open({
+            content: '/provider/',
+            title: "新增供应商",
+            area: ['40%', '85%'],
+            type: 2,
+            maxmin: true,
+            shadeClose: true,
+            success: function (data) {
+                $(':focus').blur();
+                form.val("provider-table", data);
+            },
+            end: function () {
+                $(':focus').blur();
+                table.reload('provider-table');
+            }
+        });
+    }
     function edit(data) {
         console.log(data.id);
         layer.open({

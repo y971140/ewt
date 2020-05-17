@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.github.pagehelper.PageHelper;
 import im.zhaojun.common.exception.DuplicateNameException;
+import im.zhaojun.common.exception.DuplicateProviderNameException;
 import im.zhaojun.common.exception.UsedProviderCannotBeDeleted;
 import im.zhaojun.system.mapper.ProviderMapper;
 import im.zhaojun.system.model.Provider;
@@ -61,11 +62,10 @@ public class ProviderServiceImpl implements ProviderService {
         /**
          * 统计已经有几个此供应商, 用来检测供应商是否重复.
          */
-        Provider provider = new Provider();
-        provider.setPname(pname);
-        QueryWrapper<Provider> queryWrapper = new QueryWrapper<Provider>(provider);
+        QueryWrapper<Provider> queryWrapper = new QueryWrapper<Provider>();
+        queryWrapper.eq("pname",pname);
         if (providerMapper.selectCount(queryWrapper) > 0) {
-            throw new DuplicateNameException();
+            throw new DuplicateProviderNameException();
         }
     }
 
@@ -125,14 +125,14 @@ public class ProviderServiceImpl implements ProviderService {
     @Transactional
     @Override
     public void updateItem(Provider provider) {
-        //provider.setUpdateTime(new Date());
+        checkProviderNameExistOnCreate(provider.getPname());
         this.providerMapper.updateById(provider);
     }
 
     @Override
     public Provider selectOne(Integer id) {
         QueryWrapper<Provider> queryWrapper = new QueryWrapper<>();
-        queryWrapper.lambda().eq(Provider::getId, id);
+        queryWrapper.eq("id", id);
         return providerMapper.selectOne(queryWrapper);
     }
 

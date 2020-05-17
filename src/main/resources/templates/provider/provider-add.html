@@ -32,12 +32,9 @@
                     手机
                 </label>
                 <div class="layui-input-block">
-                  <!--   <input type="search" id="mobile" name="mobile" th:value="${provider?.mobile}" lay-verify="required"
-                        lay-vertype="tips"  onblur="checkTel(this.id)"  maxlength="11"
-                        oninput="value=value.replace(/[^\d]/g,'')" autocomplete="off" placeholder="请输入供应商手机"
-                        class="layui-input"> -->
-                        <input type="search" lay-verify="phones" required  lay-vertype="tips"  id="mobile" name="mobile" 
-                         autocomplete="off" placeholder="请输入供应商手机"
+                        <input type="search" lay-verify="mobile" required  lay-vertype="tips"  id="mobile" name="mobile"
+                         autocomplete="off" placeholder="请输入供应商手机" th:value="${provider?.mobile}"
+                               oninput="value=value.replace(/[^\d]/g,'')" maxlength="11"
                         class="layui-input">
                 </div>
             </div>
@@ -66,7 +63,7 @@
                 </label>
                 <div class="layui-input-block">
 
-                    <textarea type="text" id="remark" name="remark" th:value="${provider?.remark}"
+                    <textarea type="text" id="remark" name="remark" th:field="*{provider.remark}"
                         lay-verify="required" lay-vertype="tips" autocomplete="off" placeholder="请输入备注内容"
                         class="layui-textarea"></textarea>
 
@@ -77,9 +74,8 @@
                     性别
                 </label>
                 <div class="layui-input-block">
-                    <input type="radio" name="genre" value="男" th:checked="${provider?.genre == '1' || user == null}"
-                        title="男">
-                    <input type="radio" name="genre" value="女" th:checked="${provider?.genre == '0'}" title="女">
+                    <input name="genre" type="radio" value="男"  title="男" th:field="*{provider.genre}"/>
+                    <input name="genre" type="radio" value="女"  title="女" th:field="*{provider.genre}"/>
                 </div>
             </div>
             <div class="layui-form-item" pane="">
@@ -87,16 +83,18 @@
                     状态
                 </label>
                 <div class="layui-input-block">
-                    <input type="radio" name="isActivate" value="1"
-                        th:checked="${provider?.isActivate == '1' || user == null}" title="正常">
-                    <input type="radio" name="isActivate" value="0" th:checked="${provider?.isActivate == '0'}"
-                        title="锁定">
+                    <input name="isActivate" type="radio" value="1"  title="正常" th:field="*{provider.isActivate}"/>
+                    <input name="isActivate" type="radio" value="0"  title="锁定" th:field="*{provider.isActivate}"/>
                 </div>
             </div>
+
+
             <div class="layui-form-item">
-                <div class="layui-input-block" style="margin-left:0;text-align:center;">
-                    <button th:text="${provider}?'修改':'增加'" class="layui-btn layui-btn-normal btn-w100" lay-submit=""
-                        data-th-lay-filter="${provider}?'edit':'add'"></button>
+                <div class="layui-form-item">
+                    <div class="layui-input-block" style="margin-left:0;text-align:center;">
+                        <input type="hidden" id="id" name="id" th:value="${provider?.id}">
+                        <button th:text="${provider}?'修改':'增加'"  class="layui-btn layui-btn-normal btn-w100" lay-submit="" data-th-lay-filter="${provider}?'edit':'add'"></button>
+                    </div>
                 </div>
             </div>
         </form>
@@ -107,9 +105,9 @@
     <script th:src="@{/js/common.js}"></script>
     <script th:src="@{/lib/sys/provider/provider.js}"></script>
     <script>
- 
 
-    
+
+
         layui.config({
             base: '/lib/layui/extend/'
         }).extend({
@@ -121,9 +119,6 @@
                 , formSelects = layui.formSelects
                 , dtree = layui.dtree
                 , table = layui.table;
-
-
-
 
             form.on('submit(add)', function (form) {
                 $.post('/provider', form.field, function (result) {
@@ -147,7 +142,7 @@
                 parent.layui.table.reload('provider-table');
             }
 
- 
+
 
             function editDone(data) {
                 layer.msg("修改成功", { icon: 6 });

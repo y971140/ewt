@@ -78,33 +78,31 @@ public class UserService {
 
     public boolean disableUserByID(Integer id) {
 //        offlineByUserId(id); // 加上这段代码, 禁用用户后, 会将当前在线的用户立即踢出.
-    	checkuserId(id);
+        checkuserId(id);
         return userMapper.updateStatusByPrimaryKey(id, 0) == 1;
     }
 
     /**
      * 新增时校验用户id是否为管理员
-     * @param userid  用户ID
+     *
+     * @param userid 用户ID
      */
     private void checkuserId(Integer id) {
-    	int userId=1;
-    	 if (id.equals(userId)) {
-    		 
-             throw new LockNotAllowedForAdministratorAccount();
-         }
-	}
-    
-    
-    
-    
+        int userId = 1;
+        if (id.equals(userId)) {
 
-	public boolean enableUserByID(Integer id) {
+            throw new LockNotAllowedForAdministratorAccount();
+        }
+    }
+
+    public boolean enableUserByID(Integer id) {
         return userMapper.updateStatusByPrimaryKey(id, 1) == 1;
     }
 
     /**
      * 根据用户 ID 激活账号.
-     * @param userId    用户 ID
+     *
+     * @param userId 用户 ID
      */
     public void activeUserByUserId(Integer userId) {
         userMapper.activeUserByUserId(userId);
@@ -123,7 +121,8 @@ public class UserService {
 
     /**
      * 新增时校验用户名是否重复
-     * @param username  用户名
+     *
+     * @param username 用户名
      */
     public void checkUserNameExistOnCreate(String username) {
         if (userMapper.countByUserName(username) > 0) {
@@ -194,8 +193,9 @@ public class UserService {
 
     /**
      * 获取用户拥有的所有菜单权限和操作权限.
-     * @param username      用户名
-     * @return              权限标识符号列表
+     *
+     * @param username 用户名
+     * @return 权限标识符号列表
      */
     public Set<String> selectPermsByUsername(String username) {
         Set<String> perms = new HashSet<>();

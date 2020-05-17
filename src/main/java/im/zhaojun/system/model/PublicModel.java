@@ -9,26 +9,26 @@ import lombok.experimental.Accessors;
 import java.io.Serializable;
 import java.util.Date;
 
-@Accessors(chain=true)
-@TableName	//实现了对象与表的映射关系 如果表名相同,则可以省略不写
-public class PublicModel implements Serializable {/**
-	 * 
-	 */
-	private static final long serialVersionUID = 3156133242285166478L;
-	@TableField(fill = FieldFill.INSERT)
-	private Date createTime;
-	@ApiModelProperty(value = "创建用户ID")
-	@TableField(value = "create_id",fill = FieldFill.INSERT)
-	private Integer createId;
-	@TableField(fill = FieldFill.INSERT)
-	private String createName;
-	@TableField(fill = FieldFill.INSERT_UPDATE)
-	private Date updateTime;
-	@TableField(fill = FieldFill.INSERT_UPDATE)
-	private Integer updateId;
-	@TableField(fill = FieldFill.INSERT_UPDATE)
-	private String updateName;
-
+@Accessors(chain = true)
+@TableName    //实现了对象与表的映射关系 如果表名相同,则可以省略不写
+public class PublicModel implements Serializable {
+    /**
+     *
+     */
+    private static final long serialVersionUID = 3156133242285166478L;
+    @TableField(fill = FieldFill.INSERT)
+    private Date createTime;
+    @ApiModelProperty(value = "创建用户ID")
+    @TableField(value = "create_id", fill = FieldFill.INSERT)
+    private Integer createId;
+    @TableField(fill = FieldFill.INSERT)
+    private String createName;
+    @TableField(fill = FieldFill.INSERT_UPDATE)
+    private Date updateTime;
+    @TableField(fill = FieldFill.INSERT_UPDATE)
+    private Integer updateId;
+    @TableField(fill = FieldFill.INSERT_UPDATE)
+    private String updateName;
 
     public PublicModel(Date createTime, Integer createId, String createName, Date updateTime, Integer updateId, String updateName) {
         this.createTime = createTime;

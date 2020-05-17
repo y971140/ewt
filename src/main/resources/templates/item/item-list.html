@@ -252,10 +252,10 @@ return '';
         }
 
         function del(obj) {
-            layer.confirm("确定删除用户吗?", {icon: 3, title: '提示'},
+            layer.confirm("确定删除商品吗?", {icon: 3, title: '提示'},
                 function (index) {//确定回调
-                    var id = obj.data.userId;
-                    $.post('/user/' + id, {_method: "DELETE"}, function (data) {
+                    var id = obj.data.id;
+                    $.post('/item/' + id, {_method: "DELETE"}, function (data) {
                         layer.close(index);
                         handlerResult(data, deleteDone);
                     });

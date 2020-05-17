@@ -1,6 +1,11 @@
 package im.zhaojun.common.config;
 
+import com.alipay.api.domain.UserLoginStatusDetail;
+import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
+import im.zhaojun.common.util.ShiroUtil;
+import im.zhaojun.system.model.User;
 import org.apache.ibatis.reflection.MetaObject;
 import org.springframework.stereotype.Component;
 
@@ -20,11 +25,22 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
 	 */
 	@Override
     public void insertFill(MetaObject metaObject) {
+        User userEntity = ShiroUtil.getCurrentUser();
         // 先判断是否存在该字段
         boolean createTime = metaObject.hasSetter("createTime");
+        boolean updateTime = metaObject.hasSetter("updateTime");
+        boolean createId = metaObject.hasSetter("createId");
+        boolean createName = metaObject.hasSetter("createName");
+        if (createId) {
+            this.setFieldValByName("createId", userEntity.getUserId(), metaObject);
+        }
+        if (createName) {
+            this.setFieldValByName("createName", userEntity.getUsername(), metaObject);
+        }
         if (createTime) {
-            System.out.println("insertFill......");
             setFieldValByName("createTime", new Date(), metaObject);
+        }
+        if (updateTime) {
             setFieldValByName("updateTime", new Date(), metaObject);
         }
     }
@@ -36,11 +52,21 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
 	 */
 	@Override
     public void updateFill(MetaObject metaObject) {
-        // 先判断该值是否为空，为空才填充
-        Object updateTime = getFieldValByName("updateTime", metaObject);
-        if (updateTime == null) {
-            System.out.println("updateFill......");
+        User userEntity = ShiroUtil.getCurrentUser();
+        // 先判断该值是否为空，为空才填充，这是错的，暂时注释，不应该只为空值时更新，应该是有修改后就必须更新
+        //Object updateTime = getFieldValByName("updateTime", metaObject);
+        boolean updateTime = metaObject.hasSetter("updateTime");
+        boolean updateId = metaObject.hasSetter("updateId");
+        boolean updateName = metaObject.hasSetter("updateName");
+        if (updateTime) {
             setFieldValByName("updateTime", new Date(), metaObject);
         }
+        if (updateId) {
+            this.setFieldValByName("updateId", userEntity.getUserId(), metaObject);
+        }
+        if (updateName) {
+            this.setFieldValByName("updateName", userEntity.getUsername(), metaObject);
+        }
+
     }
 }
