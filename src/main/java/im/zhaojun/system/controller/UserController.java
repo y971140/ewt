@@ -88,7 +88,7 @@ public class UserController {
     }
 
     @OperationLog("删除账号")
-    @RequestMapping(value="/{userId}",method=RequestMethod.POST)
+    @DeleteMapping(value="/{userId}")
     @ResponseBody
     public ResultBean delete(@PathVariable("userId") Integer userId) {
         userService.delete(userId);

@@ -3,14 +3,15 @@ package im.zhaojun.system.model;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import io.swagger.annotations.ApiModel;
 import lombok.experimental.Accessors;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
+@ApiModel(value="Provider", description="供应商资料表")
 @Accessors(chain = true)
-@TableName    //实现了对象与表的映射关系 如果表名相同,则可以省略不写
 public class Provider extends PublicModel {
     private static final long serialVersionUID = 7026922358123970623L;
     @TableId(type = IdType.AUTO)    //定义主键,主键自增

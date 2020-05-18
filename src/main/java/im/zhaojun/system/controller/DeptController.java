@@ -4,13 +4,14 @@ import im.zhaojun.common.annotation.OperationLog;
 import im.zhaojun.common.util.ResultBean;
 import im.zhaojun.system.model.Dept;
 import im.zhaojun.system.service.DeptService;
+import io.swagger.annotations.Api;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
-
+@Api(tags = {"部门表"})
 @Controller
 @RequestMapping("/dept")
 public class DeptController {

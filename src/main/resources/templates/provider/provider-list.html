@@ -19,42 +19,34 @@
     <div class="page-loading">
         <div class="rubik-loader"></div>
     </div>
-
-    <div class="z-body animated fadeIn">
-        <form class="layui-form zadmin-search-area input">
+    <div class="z-body animated fadeIn ">
+        <form class="layui-form  zadmin-search-area input">
             <div class="layui-form-item">
-                <div class="layui-inline">
-                    <label for="pname" class="layui-form-label">供应商名</label>
-                    <div class="layui-input-inline">
-                        <input type="text" name="pname" autocomplete="off" id="pname" class="layui-input">
-                    </div>
-
-                    <label for="mobile" class="layui-form-label">手机</label>
-                    <div class="layui-input-inline">
-                        <input type="text" name="mobile" autocomplete="off" id="mobile" class="layui-input">
-                    </div>
-                    <label for="isActivate" class="layui-form-label">状态</label>
-                    <div class="layui-input-inline">
-                        <select name="isActivate" id="isActivate">
-                            <option value="">请选择</option>
-                            <option value="1">正常</option>
-                            <option value="0">锁定</option>
-                        </select>
-                    </div>
-
-                    <button lay-submit="" lay-filter="search"
-                            class="layui-btn layui-btn-sm layui-btn-primary table-action">
-                        <i class="zadmin-icon zadmin-icon-search"></i>
-                    </button>
+                <label for="pname" class="layui-form-label">供应商名</label>
+                <div class="layui-input-inline">
+                    <input type="search" name="pname" placeholder="请输入查找的供应商名称" autocomplete="off" id="pname" class="layui-input">
                 </div>
+                <label for="mobile" class="layui-form-label">手机</label>
+                <div class="layui-input-inline">
+                    <input type="search" name="mobile" placeholder="请输入查找的手机号码" oninput="value=value.replace(/[^\d]/g,'')" maxlength="11" autocomplete="off" id="mobile" class="layui-input">
+                </div>
+                <label for="isActivate" class="layui-form-label">状态</label>
+                <div class="layui-input-inline">
+                    <select name="isActivate" id="isActivate">
+                        <option value="">请选择</option>
+                        <option value="1">正常</option>
+                        <option value="0">锁定</option>
+                    </select>
+                </div>
+                <button lay-submit="" lay-filter="search"
+                        class="layui-btn layui-btn-sm layui-btn-primary table-action layui-btn-primary-zadmin">
+                    <i class="zadmin-icon zadmin-icon-search"></i>
+                </button>
             </div>
-        </form>
 
+        </form>
         <table class="layui-hide" id="provider-table" lay-filter="provider-table"></table>
     </div>
-
-
-
 
     <script type="text/html" id="toolbar">
         <div class="layui-btn-group">

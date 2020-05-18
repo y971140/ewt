@@ -3,8 +3,9 @@ package im.zhaojun.system.model;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import io.swagger.annotations.ApiModel;
 import lombok.experimental.Accessors;
-
+@ApiModel(value="ItemCat", description="商品类目表")
 @TableName("tb_item_cat")
 @Accessors(chain=true)
 public class ItemCat {

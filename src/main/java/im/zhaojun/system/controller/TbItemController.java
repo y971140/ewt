@@ -4,10 +4,12 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.github.pagehelper.PageInfo;
 import im.zhaojun.common.annotation.OperationLog;
 import im.zhaojun.common.util.PageResultBean;
-import im.zhaojun.common.util.ResultBean;
 import im.zhaojun.system.model.TbItem;
 import im.zhaojun.system.service.TbItemService;
-import io.swagger.annotations.*;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -54,15 +56,11 @@ public class TbItemController {
     public int add(@RequestBody TbItem tbItem){
         return tbItemService.add(tbItem);
     }
-    @ResponseBody
-    @OperationLog("删除商品表")
-    @ApiOperation(value = "删除商品表",httpMethod = "DELETE",notes = "删除之后返回int值")
-    //@ApiOperation(value = "接口说明", httpMethod = "接口请求方式", notes = "接口发布说明")
-    //@ApiImplicitParam(paramType = "query",name = "id", value="商品ID", required = true)
-    @ApiResponse(code = 400,message = "参数没有填好",response = String.class)
+
+    @ApiOperation(value = "删除商品表")
     @DeleteMapping("{id}")
-    public ResultBean delete(@PathVariable("id") Long id){
-        return ResultBean.success(tbItemService.delete(id));
+    public int delete(@PathVariable("id") Long id){
+        return tbItemService.delete(id);
     }
 
     @ApiOperation(value = "更新商品表")

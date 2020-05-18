@@ -3,10 +3,12 @@ package im.zhaojun.system.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.annotations.ApiModel;
 
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+@ApiModel(value="Dept", description="部门表")
 public class Dept implements Serializable {
 
     private static final long serialVersionUID = -194076170058276436L;

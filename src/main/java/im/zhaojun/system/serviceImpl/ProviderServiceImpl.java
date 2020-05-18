@@ -3,7 +3,6 @@ package im.zhaojun.system.serviceImpl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.github.pagehelper.PageHelper;
-import im.zhaojun.common.exception.DuplicateNameException;
 import im.zhaojun.common.exception.DuplicateProviderNameException;
 import im.zhaojun.common.exception.UsedProviderCannotBeDeleted;
 import im.zhaojun.system.mapper.ProviderMapper;
@@ -48,7 +47,6 @@ public class ProviderServiceImpl implements ProviderService {
         //生成随机UUID，去掉"-"号及字母大写
         String uuidStr = UUID.randomUUID().toString().replaceAll("-", "").toUpperCase();
         provider.setPid(uuidStr);//写入随机UUID
-        //	.setMakeDate(new Date());//写入创建日期
         providerMapper.insert(provider);//执行mybatis plus插入
         return provider.getPid();
     }
@@ -125,7 +123,12 @@ public class ProviderServiceImpl implements ProviderService {
     @Transactional
     @Override
     public void updateItem(Provider provider) {
-        checkProviderNameExistOnCreate(provider.getPname());
+        QueryWrapper<Provider> queryWrapper = new QueryWrapper<>(provider);
+
+        queryWrapper.eq("pname", provider.getPname());
+        if (queryWrapper.equals(String.valueOf(provider.getPname()))){
+            checkProviderNameExistOnCreate(provider.getPname());
+        }
         this.providerMapper.updateById(provider);
     }
 

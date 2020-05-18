@@ -2,10 +2,11 @@ package im.zhaojun.system.controller;
 
 import im.zhaojun.common.annotation.OperationLog;
 import im.zhaojun.system.service.ItemCatService;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
+@Api(tags = {"商品类目表"})
 @RestController
 @RequestMapping("/item/cat")
 public class ItemCatController {

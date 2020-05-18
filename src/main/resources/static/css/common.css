@@ -142,16 +142,16 @@
     cursor: pointer;
 }
 
-/*
+
 .zadmin-search-area input {
     height: 32px;
-    vertical-align: bottom;
+    /*vertical-align: bottom;*/
 }
-*/
+
 
 .zadmin-oper-area {
     font-size: 18px !important;
-    margin-right: 5px;
+    /*margin-right: 5px;*/
 }
 
 .zadmin-blue {
@@ -171,7 +171,10 @@
 }
  .layui-form-label{
      width: 100px;
-     height: 32px;
+     margin: -5px auto;
+     /**
+     解决查询页面文字与输入框不对齐问题。margin: -5px auto;
+     */
  }
 .layui-input-block {
     margin-left: 130px;
@@ -179,5 +182,5 @@
 
 .layui-btn-primary-zadmin{
     display: block;
-    margin: -5 auto;
+   /* margin: -5px auto;*/
 }

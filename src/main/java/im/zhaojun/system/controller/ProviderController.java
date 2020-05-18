@@ -9,6 +9,7 @@ import im.zhaojun.system.model.Provider;
 import im.zhaojun.system.model.User;
 import im.zhaojun.system.service.ProviderService;
 import im.zhaojun.system.service.RoleService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -20,7 +21,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import javax.validation.Valid;
 import java.util.List;
-
+@Api(tags = {"供应商资料表"})
 @Controller
 @RequestMapping("/provider")
 public class ProviderController {
@@ -46,18 +47,17 @@ public class ProviderController {
 	}
 
 	@GetMapping
-	public String add(Model model) {
-		model.addAttribute("roles", roleService.selectAll());
+	public String add() {
 		return "provider/provider-add";
 	}
 
 	@OperationLog("新增供应商")
-	@PostMapping
+	@PostMapping()
 	@ResponseBody
 	public ResultBean add(@Validated(Create.class) Provider provider) {
 		return ResultBean.success(providerService.add(provider));
 	}
-	
+
 	@OperationLog("修改供应商-获取内容")
 	@GetMapping("/{id}")
 	public String update(@PathVariable("id") Integer id, Model model) {
@@ -72,7 +72,8 @@ public class ProviderController {
 			providerService.updateItem(provider);
 			return ResultBean.success();
 		}
-
+	@ApiOperation(value = "禁用供应商账号",httpMethod = "POST",notes = "激活之后返回int值")
+	@ApiResponse(code = 400,message = "参数没有填好",response = String.class)
 	@OperationLog("禁用供应商账号")
 	@PostMapping("/{pid}/disable")
 	@ResponseBody
@@ -80,7 +81,8 @@ public class ProviderController {
 
 		return ResultBean.success(providerService.disableProviderByID(id));
 	}
-
+	@ApiOperation(value = "激活供应商账号",httpMethod = "POST",notes = "激活之后返回int值")
+	@ApiResponse(code = 400,message = "参数没有填好",response = String.class)
 	@OperationLog("激活供应商账号")
 	@PostMapping("/{pid}/enable")
 	@ResponseBody
@@ -89,24 +91,25 @@ public class ProviderController {
 		return ResultBean.success(providerService.enableProviderByID(id));
 	}
 
-	
+
 	@OperationLog("删除供应商账号")
-	@RequestMapping(value = "/delete")
-	@ApiOperation(value = "册除一个用户",notes = "删除之后返回int值")
-	//@ApiOperation(value = "接口说明", httpMethod = "接口请求方式", notes = "接口发布说明")
-    @ApiImplicitParam(paramType = "query",name = "id",defaultValue="0", value="供应商ID", required = true)
-    @ApiResponse(code = 400,message = "参数没有填好",response = String.class)
+	@ApiOperation(value = "删除供应商账号",httpMethod = "DELETE",notes = "删除之后返回int值")
+	@ApiResponse(code = 400,message = "参数没有填好",response = String.class)
+	@DeleteMapping("{id}")
 	@ResponseBody
-	public ResultBean delete(@RequestParam("id") Integer id) {
+	public ResultBean delete(@PathVariable("id") Integer id) {
 		return ResultBean.success(providerService.deleteProvider(id));
 		//return "provider/provider-list";
 	}
 
 	@OperationLog("批量删除供应商账号")
-	@RequestMapping(value = "/deleteAll", method = RequestMethod.POST)
+	@ApiOperation(value = "批量删除供应商账号",httpMethod = "DELETE",notes = "删除之后返回int值")
+	@ApiResponse(code = 400,message = "参数没有填好",response = String.class)
+	@DeleteMapping("/delall/{id}")
 	@ResponseBody
-	public ResultBean deleteAll(@RequestParam("id") Long[] id) {
+	public ResultBean deleteAll(@PathVariable("id") Long[] id) {
 		return ResultBean.success(providerService.deleteAllProvider(id));
 	}
+
 
 }

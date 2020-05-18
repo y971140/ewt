@@ -21,7 +21,7 @@ layui.config({
             [
                 { title: '操作', fixed: 'left', align: 'center', toolbar: '#column-toolbar' }
                 , { type: 'checkbox' }
-                , { type: 'numbers', title: '序号', sort: true, width: "5%" }
+                , { type: 'numbers', title: '序号',width: "5%" }
                 , { field: 'id', title: 'ID', sort: true, width: "10%", hide: true }
                 , { field: 'pid', title: 'PID', sort: true, width: "10%", hide: true }
                 , { field: 'pname', title: '供应商名称', sort: true, width: "260" }
@@ -113,15 +113,27 @@ form.on('submit(search)', function (form) {
             del(obj);
         }
     });
-
-  /*  function add() {
-        Layer.openDialog1('新增供应商', '/provider', 40, 80);
+    function add() {
+        layer.open({
+            content: "/provider/",
+            title: "新增用户",
+            area: ['40%', '85%'],
+            type: 2,
+            maxmin: true,
+            shadeClose: true,
+            end: function () {
+                table.reload('provider-table');
+            }
+        });
+    }
+/*   function add() {
+        Layer.openDialog1('新增供应商', '/provider/', 40, 80);
     }*/
 
     /*  function edit(id) {
             Layer.openDialog1('修改供应商', '/provider/'+id, 40, 80);
         } */
-    function add() {
+   /* function add() {
         layer.open({
             content: '/provider/',
             title: "新增供应商",
@@ -138,7 +150,7 @@ form.on('submit(search)', function (form) {
                 table.reload('provider-table');
             }
         });
-    }
+    }*/
     function edit(data) {
         console.log(data.id);
         layer.open({
@@ -176,9 +188,10 @@ form.on('submit(search)', function (form) {
                 ids += "," + item.id;
             }
         });
+        var id=ids;
         if (dataLength > 0) {
-            layer.confirm('确定删除【' + ids + '】供应商吗?', { Boolean: false, shade: [0.3, '#393D49'], icon: 3, title: '批量删除提醒' }, function (index) {
-                $.post("/provider/deleteAll", { "id": ids }, function (data) {
+            layer.confirm('确定删除【' + id + '】供应商吗?', { Boolean: false, shade: [0.3, '#393D49'], icon: 3, title: '批量删除提醒' }, function (index) {
+                $.post("/provider/delall/"+id, {_method: "DELETE"},function (data) {
                     layer.close(index);
                     handlerResult(data, deleteDone);
                 });
@@ -189,10 +202,10 @@ form.on('submit(search)', function (form) {
         }
     }
     function del(obj) {
-        layer.confirm("确定删除供应商吗?", { icon: 3, title: '删除提醒' },
+        layer.confirm("确定删除商品吗?", {icon: 3, title: '删除提示'},
             function (index) {//确定回调
                 var id = obj.data.id;
-                $.post('/provider/delete', { id: id }, function (data) {
+                $.post('/provider/' + id, {_method: "DELETE"}, function (data) {
                     layer.close(index);
                     handlerResult(data, deleteDone);
                 });
