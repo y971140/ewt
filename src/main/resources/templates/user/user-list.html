@@ -25,11 +25,10 @@
         <form class="layui-form zadmin-search-area input">
             <div class="layui-form-item">
                 <div class="layui-inline">
-                    <label for="username" class="layui-form-label">用户名</label>
+                    <label for="username"  class="layui-form-label">用户名</label>
                     <div class="layui-input-inline">
-                        <input type="text" name="username" autocomplete="off" id="username" class="layui-input">
+                        <input type="text" name="username"  autocomplete="off" id="username" class="layui-input">
                     </div>
-
                     <label for="email" class="layui-form-label">邮箱</label>
                     <div class="layui-input-inline">
                         <input type="text" name="email" autocomplete="off" id="email" class="layui-input">
@@ -231,18 +230,73 @@
 
             function add() {
                 layer.open({
-                    content: "/user",
-                    title: "新增用户",
-                    area: ['40%', '85%'],
-                    type: 2,
-                    maxmin: true,
-                    shadeClose: true,
-                    end: function () {
+                    type: 2,//弹窗类型
+                    content: '/user',
+                    title: "新增用户",//标题
+                    btn:['提交','关闭'],
+                    btnAlign: 'c',//btnAlign: 'c'	按钮居中对齐
+                    skin: 'custom-class',//弹窗按钮样式
+                    offset : '15px',//坐标位置，只定义top坐标，水平保持居中
+                    closeBtn:1, //关闭按钮样式
+                    shade: [0.8, '#393D49'],//shade - 遮罩,背景颜色
+                    scrollbar: false,//不显示滚动条
+                    area: ['95%', '95%'],//显示窗口尺寸
+                    id:'newUser',//弹窗ID
+                    success: function(layero, index){
+                        setTimeout(function(){
+                            layui.layer.tips('返回列表', '.layui-layer-setwin .layui-layer-close', {tips: [3,'#3595CC'],time: 2000,
+                                area: ['80px', 'auto']});
+                        },500)
+                        $(document).on('keydown', this.enterConfirm); //监听键盘事件
+                        // 点击确定按钮回调事件
+                        $(".layui-layer-btn0").on("click",function() {
+                            console.log("你点击了提交按钮！");
+                        })
+                    },yes: function(index, layero){
+                            const submit = layero.find('iframe').contents().find("#Submit");// #Submit为页面层(XXXX-add.html文件)提交按钮ID
+                            submit.click();// 触发提交监听
+                    },btn2:  function(){
+                        $(document).off('keydown', this.enterConfirm); //解除键盘事件
+                        table.reload('user-table');
+                    },end:function () {
+                        $(document).off('keydown', this.enterConfirm); //解除键盘事件
                         table.reload('user-table');
                     }
                 });
             }
-
+            function edit(id) {
+                layer.open({
+                    type: 2,
+                    content: '/user/' + id,
+                    title: "修改用户",
+                    btn:['提交','关闭'],
+                    btnAlign: 'c',
+                    skin: 'custom-class',
+                    offset : '15px',
+                    closeBtn:1,
+                    shade: [0.8, '#393D49'],
+                    scrollbar: false,
+                    area: ['95%', '95%'],
+                    id:'updateUser',
+                    success: function(layero, index){
+                        setTimeout(function(){
+                            layui.layer.tips('返回列表', '.layui-layer-setwin .layui-layer-close', {tips: [3,'#3595CC'],time: 2000,
+                                area: ['80px', 'auto']});
+                        },500)
+                        $(document).on('keydown', this.enterConfirm); //监听键盘事件
+                        // 点击确定按钮回调事件
+                        $(".layui-layer-btn0").on("click",function() {
+                            console.log("你点击了提交按钮！");
+                        })
+                    },yes: function(index, layero){
+                        const submit = layero.find('iframe').contents().find("#Submit");// #Submit为页面层(XXXX-add.html文件)提交按钮ID
+                        submit.click();// 触发提交监听
+                    },end: function(){
+                        $(document).off('keydown', this.enterConfirm); //解除键盘事件
+                        table.reload('user-table');
+                    }
+                });
+            }
             function del(obj) {
                 layer.confirm("确定删除用户吗?", { icon: 3, title: '提示' },
                     function (index) {//确定回调
@@ -262,7 +316,7 @@
                 table.reload('user-table');
             }
 
-            function edit(id) {
+           /* function edit(id) {
                 console.log(id);
                 layer.open({
                     content: '/user/' + id,
@@ -275,7 +329,7 @@
                         table.reload('user-table');
                     }
                 });
-            }
+            }*/
 
             form.on('submit(search)', function (form) {
                 table.reload('user-table', {
@@ -285,6 +339,7 @@
             });
 
         });
+
     </script>
 </body>
 

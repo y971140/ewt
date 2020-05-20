@@ -23,7 +23,7 @@ public class Provider extends PublicModel {
     private String pname;
     private String bankAccount;
     private String bankName;
-    private Character genre;
+    private Integer genre;
     private String tel;
     @NotBlank(message = "手机号不能为空")
     //验证 String 对象是否符合正则表达式的规则
@@ -40,7 +40,7 @@ public class Provider extends PublicModel {
     private String remark;
     private Integer isDel;
 
-    public Provider(Long id, String pid, @NotBlank(message = "供应商名称不能为空") String pname, String bankAccount, String bankName, Character genre, String tel, @NotBlank(message = "手机号不能为空") @Pattern(regexp = "^1[3456789]\\d{9}$", message = "手机号格式不正确") String mobile, @Email(message = "邮箱格式不正确") String email, String addr, Integer abcSort, Integer province, Integer city, Integer areas, Integer isActivate, String remark, Integer isDel) {
+    public Provider(Long id, String pid, @NotBlank(message = "供应商名称不能为空") String pname, String bankAccount, String bankName, Integer genre, String tel, @NotBlank(message = "手机号不能为空") @Pattern(regexp = "^1[3456789]\\d{9}$", message = "手机号格式不正确") String mobile, @Email(message = "邮箱格式不正确") String email, String addr, Integer abcSort, Integer province, Integer city, Integer areas, Integer isActivate, String remark, Integer isDel) {
         this.id = id;
         this.pid = pid;
         this.pname = pname;
@@ -82,7 +82,7 @@ public class Provider extends PublicModel {
         return this.bankName;
     }
 
-    public Character getGenre() {
+    public Integer getGenre() {
         return this.genre;
     }
 
@@ -155,7 +155,7 @@ public class Provider extends PublicModel {
         return this;
     }
 
-    public Provider setGenre(Character genre) {
+    public Provider setGenre(Integer genre) {
         this.genre = genre;
         return this;
     }

@@ -23,8 +23,8 @@
                     用户名
                 </label>
                 <div class="layui-input-block">
-                    <input type="text" id="username" name="username" th:value="${user?.username}" lay-verify="required"
-                        lay-vertype="tips" autocomplete="off" class="layui-input">
+                    <input type="text" id="username" onblur="verifyUserName()"  name="username" th:value="${user?.username}" lay-verify="required"
+                        lay-vertype="tips" autocomplete="off"    class="layui-input">
                 </div>
             </div>
             <div class="layui-form-item">
@@ -46,14 +46,14 @@
                 </div>
             </div>
             <!-- 编辑时不显示密码框 -->
-           <!--  <div th:if="${user == null}" class="layui-form-item"> -->
-            <div  class="layui-form-item">
+            <div th:if="${user == null}" class="layui-form-item">
                 <label for="password" class="layui-form-label">
                     用户密码
                 </label>
                 <div class="layui-input-block">
-                    <input type="password" id="password" name="password" lay-verify="required" lay-vertype="tips"
-                        autocomplete="off" class="layui-input">
+                    <input type="password" id="password" name="password"
+                           lay-verify="required" lay-vertype="tips"
+                           autocomplete="off" class="layui-input">
                 </div>
             </div>
             <div class="layui-form-item" pane="">
@@ -71,7 +71,7 @@
                     角色
                 </label>
                 <div class="layui-input-block">
-                    <select name="role" xm-select="role-select" lay-verify="required" lay-vertype="tips">
+                    <select autocomplete="off" name="role" xm-select="role-select" lay-verify="required" lay-vertype="tips">
                         <option value="">请选择角色</option>
                         <option th:each="role:${roles}" th:value="${role.roleId}" th:text="${role.roleName}"
                             th:selected="${#arrays.contains((roleIds == null ? #arrays.toIntegerArray(new Integer[]{}) : roleIds), role.roleId)}"></option>
@@ -87,10 +87,11 @@
                 </div>
             </div>
             <div class="layui-form-item">
-                <div class="layui-input-block" style="margin-left:0;text-align:center;">
+                <div class="layui-input-block layui-hide" style="margin-left:0;text-align:center;">
                     <input type="hidden" id="deptId" name="deptId" th:value="${user?.deptId}">
                     <input type="hidden" id="userId" name="userId" th:value="${user?.userId}">
-                    <button th:text="${user}?'修改':'增加'"  class="layui-btn layui-btn-normal btn-w100" lay-submit="" data-th-lay-filter="${user}?'edit':'add'"></button>
+                     <button id="Submit" th:text="${user}?'修改':'新增'"  class="layui-btn layui-btn-normal btn-w100"
+                             lay-submit="" data-th-lay-filter="${user}?'edit':'add'"></button>
                 </div>
             </div>
         </form>
@@ -100,7 +101,7 @@
     <script th:src="@{/lib/layui/layui.js}"></script>
     <script th:src="@{/js/common.js}"></script>
 
-    <script>
+    <script th:inline="javascript" type="text/javascript">
         layui.config({
             base: '/lib/layui/extend/'
         }).extend({
@@ -111,7 +112,9 @@
                 , layer = layui.layer
                 , formSelects = layui.formSelects
                 , dtree = layui.dtree;
-
+            window.onload=function () {
+                GetCursorPositioning("username");
+            }
             dtree.renderSelect({
                 elem: "#deptTree",
                 url: "/dept/tree",
@@ -138,12 +141,11 @@
             dtree.on("node('deptTree')", function (obj) {
                 $("#deptId").val(obj.param.nodeId);
             });
-
             form.on('submit(add)', function (form) {
                 form.field.role = formSelects.value('role-select', 'val');
-                $.post('/user', form.field, function (result) {
-                    handlerResult(result, addDone);
-                });
+                    $.post('/user', form.field, function (result) {
+                        handlerResult(result, addDone);
+                    });
                 return false;
             });
 
@@ -158,13 +160,42 @@
                 return false;
             });
 
+        /*    form.on('submit(add)',function(data)
+            {
+
+        });*/
             function addDone(data) {
                 layer.msg("添加成功", { icon: 6 });
+                parent.layui.table.reload('user-table');
             }
 
             function editDone(data) {
                 layer.msg("修改成功", { icon: 6 });
+                parent.layui.table.reload('user-table');
             }
+            window.verifyUserName= function(){
+                const username = $("#username").val();
+                const userId = $("#userId").val();
+                const  submit=document.getElementById("Submit").innerText;
+                if (submit == "新增"){
+                    $.post('/user/verifyUserName/',{username:username}, function () {
+                    });
+                }else{
+                    $.post('/user/verifyUpdateName/',{userId:userId,username:username}, function () {
+                    });
+                    console.log("这个是update="+submit);
+                }
+                    /**
+                     * 调用系统错误判断返回值500时，确认为用户名重复，
+                     * 能过GetCursorPositioning方法定位光标到username处
+                     * */
+                $(document).ajaxError(function (event, response) {
+                    if (response.status===500){
+                        GetCursorPositioning("username");
+                    }
+                });
+                    return false;
+                }
         });
     </script>
 </body>

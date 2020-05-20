@@ -1,5 +1,6 @@
 package im.zhaojun.system.service;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.github.pagehelper.PageHelper;
 import im.zhaojun.common.exception.DuplicateNameException;
 import im.zhaojun.common.exception.LockNotAllowedForAdministratorAccount;
@@ -8,6 +9,7 @@ import im.zhaojun.common.util.TreeUtil;
 import im.zhaojun.system.mapper.UserMapper;
 import im.zhaojun.system.mapper.UserRoleMapper;
 import im.zhaojun.system.model.Menu;
+import im.zhaojun.system.model.Provider;
 import im.zhaojun.system.model.User;
 import org.apache.shiro.authz.UnauthorizedException;
 import org.apache.shiro.crypto.hash.Md5Hash;
@@ -17,8 +19,10 @@ import org.apache.shiro.subject.SimplePrincipalCollection;
 import org.apache.shiro.subject.support.DefaultSubjectContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.thymeleaf.util.StringUtils;
 
 import javax.annotation.Resource;
 import java.util.*;
@@ -85,7 +89,7 @@ public class UserService {
     /**
      * 新增时校验用户id是否为管理员
      *
-     * @param userid 用户ID
+     * @param id 用户ID
      */
     private void checkuserId(Integer id) {
         int userId = 1;
@@ -130,7 +134,7 @@ public class UserService {
         }
     }
 
-    public void checkUserNameExistOnUpdate(User user) {
+  public void checkUserNameExistOnUpdate(User user) {
         if (userMapper.countByUserNameNotIncludeUserId(user.getUsername(), user.getUserId()) > 0) {
             throw new DuplicateNameException();
         }
@@ -224,5 +228,11 @@ public class UserService {
 
     private String generateSalt() {
         return String.valueOf(System.currentTimeMillis());
+    }
+
+    public void checkUserNameExistOnUpdate(Integer userId, String username) {
+        if (userMapper.countByUserNameNotIncludeUserId(username, userId) > 0) {
+            throw new DuplicateNameException();
+        }
     }
 }

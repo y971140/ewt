@@ -106,6 +106,13 @@ function getQueryString(name) {
     if (r != null) return unescape(r[2]);
     return null;
 }
+function GetCursorPositioning(name) {
+const input = document.getElementsByName(''+name+'')[0];
+const val = input.value;
+input.focus();
+input.value = '';
+input.value = val;
+}
 
 layui.config({
     base: '/lib/layui/extend/'

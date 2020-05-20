@@ -92,7 +92,7 @@
             </div>
             <div class="layui-form-item">
                 <div class="layui-input-block" style="margin-left:0;text-align:center;">
-                    <button th:text="${provider}?'修改':'增加'" class="layui-btn layui-btn-normal btn-w100" lay-submit=""
+                    <button id="Submit"  th:text="${provider}?'修改':'增加'" class="layui-btn layui-btn-normal btn-w100" lay-submit=""
                         data-th-lay-filter="${provider}?'edit':'add'"></button>
                 </div>
             </div>
@@ -118,8 +118,6 @@
                 , formSelects = layui.formSelects
                 , dtree = layui.dtree
                 , table = layui.table;
-
-
 
             form.on('submit(add)', function (form) {
                 $.post('/provider', form.field, function (result) {

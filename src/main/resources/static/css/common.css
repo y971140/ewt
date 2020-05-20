@@ -1,11 +1,31 @@
 /* ----- 滚动条样式 ----- */
 
-::-webkit-scrollbar{width: 8px; height: 8px;background: transparent;}
-::-webkit-scrollbar-button:vertical{display: none;}
-::-webkit-scrollbar-track, ::-webkit-scrollbar-corner{background-color: #e2e2e2;}
-::-webkit-scrollbar-thumb{border-radius: 8px; background-color: #a6a6a6;}
-::-webkit-scrollbar-thumb:vertical:hover{background-color: #7f7f7f;}
-::-webkit-scrollbar-thumb:vertical:active{background-color: rgba(0,0,0,.38);}
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    background: transparent;
+}
+
+::-webkit-scrollbar-button:vertical {
+    display: none;
+}
+
+::-webkit-scrollbar-track, ::-webkit-scrollbar-corner {
+    background-color: #e2e2e2;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background-color: #a6a6a6;
+}
+
+::-webkit-scrollbar-thumb:vertical:hover {
+    background-color: #7f7f7f;
+}
+
+::-webkit-scrollbar-thumb:vertical:active {
+    background-color: rgba(0, 0, 0, .38);
+}
 
 /* ----- 滚动条样式 ----- */
 
@@ -91,7 +111,7 @@
     text-align: center;
 }
 
-.login-main header, .login-main form, .login-main form .layui-input-inline{
+.login-main header, .login-main form, .login-main form .layui-input-inline {
     margin-bottom: 15px;
 }
 
@@ -169,18 +189,56 @@
 .zadmin-right {
     float: right;
 }
- .layui-form-label{
-     width: 100px;
-     margin: -5px auto;
-     /**
-     解决查询页面文字与输入框不对齐问题。margin: -5px auto;
-     */
- }
-.layui-input-block {
-    margin-left: 130px;
+
+/*自定义查询框的显示文字大小及文字与输入框不对齐问题*/
+.layui-form-label-custom {
+    width: 100px;
+    margin: -5px auto;
+    /**
+    解决查询页面文字与输入框不对齐问题。margin: -5px auto;
+    */
 }
 
-.layui-btn-primary-zadmin{
+.
+.layui-input-block {
+    /*margin-left: 130px;*/
+    width: 200px;
+}
+
+.layui-btn-primary-zadmin {
     display: block;
-   /* margin: -5px auto;*/
+    /* margin: -5px auto;*/
+}
+
+
+/**
+XXXX-list.html(列表页面layer.open({})弹窗按钮自定义样式custom-class)
+*/
+
+body .custom-class .layui-layer-btn0 {
+    border-color: #4898d5;
+    background-color: #2e8ded;
+    color: #fff;
+    text-align: center; /*right设置文本的对齐方式为右对齐*/
+    font-size: 12px; /*设置按钮文字的大小,px前的数字可以任意设置*/
+    /* padding:0px;
+    vertical-align:middle ;
+    line-height:40px;
+    margin:0px;
+    Height:40px;
+    Width:100px;*/
+}
+
+body .custom-class .layui-layer-btn1 {
+    border-color: #E6E3E6;
+    background-color: #FF7F50;
+    color: #fff;
+    text-align: center; /*right设置文本的对齐方式为右对齐*/
+    font-size: 12px; /*设置按钮文字的大小,px前的数字可以任意设置*/
+    /* padding:0px;
+    vertical-align:middle ;
+    line-height:40px;
+    margin:0px;
+    Height:40px;
+    Width:100px;*/
 }

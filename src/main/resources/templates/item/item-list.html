@@ -22,15 +22,15 @@
 <div class="z-body animated fadeIn ">
     <form class="layui-form  zadmin-search-area input">
         <div class="layui-form-item">
-            <label for="title" class="layui-form-label">商品标题</label>
+            <label for="title" class="layui-form-label layui-form-label-custom ">商品标题</label>
             <div class="layui-input-inline">
                 <input type="text" name="title" autocomplete="off" placeholder="请输入标题" class="layui-input">
             </div>
-            <label for="sellPoint" class="layui-form-label">商品卖点</label>
+            <label for="sellPoint" class="layui-form-label layui-form-label-custom">商品卖点</label>
             <div class="layui-input-inline">
                 <input type="text" name="sellPoint" autocomplete="off" placeholder="请输入卖点" class="layui-input">
             </div>
-            <label for="status" class="layui-form-label">商品状态</label>
+            <label for="status" class="layui-form-label layui-form-label-custom">商品状态</label>
             <div class="layui-input-inline">
                 <select name="status" id="status">
                     <option value="">请选择</option>
@@ -74,15 +74,8 @@
     </shiro:lacksPermission>
 </script>
 <script type="text/html" id="statusTpl">
-    <!-- 不能禁用自己 -->
-    {{#  if('<shiro:principal property="username"/>' == d.username) { }}
-    <input type="checkbox" disabled name="status" value="{{d.userId}}" lay-skin="switch" lay-text="上架|下架"
+    <input type="checkbox" name="status" value="{{d.userId}}" lay-skin="switch" lay-text="上架|下架"
            lay-filter="status" {{ d.status == '1' ? 'checked' : '' }}>
-    {{#  } }}
-    {{#  if('<shiro:principal property="username"/>' !== d.username) { }}
-    <input type="checkbox" name="status" value="{{d.userId}}" lay-skin="switch" lay-text="上架|下架" lay-filter="status"
-           {{ d.status == '1' ? 'checked' : '' }}>
-    {{#  } }}
 </script>
 <script type="text/html" id="statusPrice">{{(d.price.toFixed(2))}}</script>
 <script>
@@ -238,7 +231,7 @@ return '';
         }
 
         function add() {
-            layer.open({
+            /*layer.open({
                 content: "/user",
                 title: "新增用户",
                 area: ['40%', '85%'],
@@ -248,9 +241,42 @@ return '';
                 end: function () {
                     table.reload('item-table');
                 }
+            });*/
+            layer.open({
+                type: 2,
+                content: '/user',
+                btn:['提交','关闭'],
+                btnAlign: 'c',
+                skin: 'yourclass',
+                offset : '15px',
+                closeBtn:1,
+                shade: [0.8, '#393D49'],
+                scrollbar: false,
+                area: ['95%', '95%'],
+                id:'sdafdsfa',
+                success: function(layero, index){
+                    setTimeout(function(){
+                        layui.layer.tips('返回列表', '.layui-layer-setwin .layui-layer-close', {tips: [3,'#3595CC'],time: 2000,
+                            area: ['80px', 'auto']});
+                    },500)
+                    var body = layer.getChildFrame('body', index);
+                    var iframeWin = window[layero.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法：iframeWin.method();
+                    console.log(body.html()) //得到iframe页的body内容
+                    //body.find('input').val('Hi，我是从父页来的')
+                    $(document).on('keydown', this.enterConfirm); //监听键盘事件
+                },yes: function(index, layero){
+                    $(".layui-layer-btn0").on("click",function() {
+                        console.log("你点击了提交按钮！");
+                        var submit = layero.find('iframe').contents().find("#Submit");// #subBtn为页面层提交按钮ID
+                        $('.Submit').addClass('layui-btn-disabled').attr('disabled',"true");
+                        submit.click();// 触发提交监听
+                    })
+                    //layer.close(index); //如果设定了yes回调，需进行手工关闭
+                },end: function(){
+                    $(document).off('keydown', this.enterConfirm); //解除键盘事件
+                }
             });
         }
-
         function del(obj) {
             layer.confirm("确定删除商品吗?", {icon: 3, title: '提示'},
                 function (index) {//确定回调
@@ -288,6 +314,9 @@ return '';
         form.on('submit(search)', function (form) {
             table.reload('item-table', {
                 where: form.field
+                ,page: {
+                    curr: 1 //重新从第 1 页开始
+                }
             });
             return false;
         });

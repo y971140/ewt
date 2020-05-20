@@ -22,15 +22,16 @@
     <div class="z-body animated fadeIn ">
         <form class="layui-form  zadmin-search-area input">
             <div class="layui-form-item">
-                <label for="pname" class="layui-form-label">供应商名</label>
+                <!--layui-form-label-custom 自定义样式为解决查询框的显示文字大小及文字与输入框不对齐问题-->
+                <label for="pname" class="layui-form-label layui-form-label-custom">供应商名</label>
                 <div class="layui-input-inline">
                     <input type="search" name="pname" placeholder="请输入查找的供应商名称" autocomplete="off" id="pname" class="layui-input">
                 </div>
-                <label for="mobile" class="layui-form-label">手机</label>
+                <label for="mobile" class="layui-form-label layui-form-label-custom">手机</label>
                 <div class="layui-input-inline">
                     <input type="search" name="mobile" placeholder="请输入查找的手机号码" oninput="value=value.replace(/[^\d]/g,'')" maxlength="11" autocomplete="off" id="mobile" class="layui-input">
                 </div>
-                <label for="isActivate" class="layui-form-label">状态</label>
+                <label for="isActivate" class="layui-form-label layui-form-label-custom">状态</label>
                 <div class="layui-input-inline">
                     <select name="isActivate" id="isActivate">
                         <option value="">请选择</option>
@@ -85,7 +86,7 @@
     <script type="text/html" id="statusTpl">
             <input type="checkbox"  name="isActivate" value="{{d.id}}" lay-skin="switch" lay-text="正常|锁定" lay-filter="isActivate" {{ d.isActivate == '1' ? 'checked' : '' }}>
     </script>
-    <script th:src="@{/lib/jquery/jquery.min.js}"></script>
+    <script  th:src="@{/lib/jquery/jquery.min.js}"></script>
     <script th:src="@{/lib/layui/layui.js}"></script>
     <script th:src="@{/js/common.js}"></script>
     <script th:src="@{/lib/layer/layer.js}"></script>

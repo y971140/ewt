@@ -21,7 +21,6 @@ public class User implements Serializable {
 	private String fullname;
 
 	@JsonIgnore
-	@NotBlank(message = "密码不能为空", groups = Create.class)
 	private String password;
 
 	@JsonIgnore
