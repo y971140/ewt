@@ -1,51 +1,106 @@
 package im.zhaojun.system.controller;
 
 import im.zhaojun.common.annotation.OperationLog;
+import im.zhaojun.common.util.ResultBean;
+import im.zhaojun.system.model.ItemCat;
 import im.zhaojun.system.service.ItemCatService;
 import io.swagger.annotations.Api;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+
+import javax.annotation.Resource;
+import java.util.List;
+
 @Api(tags = {"商品类目表"})
-@RestController
+@Controller
 @RequestMapping("/item/cat")
 public class ItemCatController {
-	
-	@Autowired
+	@Resource
 	private ItemCatService itemCatService;
-	
+
+	@GetMapping("/index")
+	public String index() {
+		return "itemcat/item-cat-list";
+	}
+
+	@OperationLog("获取列表")
+	@GetMapping("/list")
+	@ResponseBody
+	public ResultBean getList(@RequestParam(required = false) Integer parentId) {
+		List<ItemCat> itemCatList = itemCatService.selectByParentId(parentId);
+		return ResultBean.success(itemCatList);
+	}
+
+	@GetMapping("/tree/root")
+	@ResponseBody
+	public ResultBean treeAndRoot() {
+		return ResultBean.success(itemCatService.selectAllDeptTreeAndRoot());
+	}
+
+	@GetMapping("/tree")
+	@ResponseBody
+	public ResultBean tree() {
+		return ResultBean.success(itemCatService.selectAllDeptTree());
+	}
+
+	@GetMapping
+	public String add() {
+		return "itemcat/item-cat-add";
+	}
+
+	@OperationLog("新增类目")
+	@PostMapping
+	@ResponseBody
+	public ResultBean add(ItemCat itemCat) {
+		return ResultBean.success(itemCatService.insert(itemCat));
+	}
+
+	@OperationLog("删除类目")
+	@RequestMapping("/{id}")
+	@ResponseBody
+	public ResultBean delete(@PathVariable("id") Integer id) {
+		itemCatService.deleteCascadeByID(id);
+		return ResultBean.success();
+	}
+
+	@OperationLog("修改类目")
+	@PutMapping
+	@ResponseBody
+	public ResultBean update(ItemCat itemCat) {
+		itemCatService.updateByPrimaryKey(itemCat);
+		return ResultBean.success();
+	}
+
+	@GetMapping("/{id}")
+	public String update(@PathVariable("id") Integer id, Model model) {
+		ItemCat itemCat= itemCatService.selectByPrimaryKey(id);
+		model.addAttribute("itemCat", itemCat);
+		return "itemcat/item-cat-add";
+	}
+
+	@OperationLog("调整类目排序")
+	@PostMapping("/swap")
+	@ResponseBody
+	public ResultBean swapSort(Integer currentId, Integer swapId) {
+		itemCatService.swapSort(currentId, swapId);
+		return ResultBean.success();
+	}
+
+
 	/**
 	 * 根据id查询商品分类名称 
 	 * url:/item/cat/queryItemName
 	 *   参数: itemCatId:val
 	 *   结果: 商品分类名称
 	 */
-	/*	@RequestMapping("/queryItemName")
-		public String findItemCatNameById(Long itemCatId) {
-			
-			//return itemCatService.findItemCatService(itemCatId);
-		}*/
-	
-	
+	@ResponseBody
 	@OperationLog("查询商品分类名称")
 	@RequestMapping(value = "/queryItemName")
-	/*@ApiOperation(value = "册除一个用户",notes = "删除之后返回int值")
-	//@ApiOperation(value = "接口说明", httpMethod = "接口请求方式", notes = "接口发布说明")
-	@ApiImplicitParam(paramType = "query",name = "id",defaultValue="0", value="供应商ID", required = true)
-	@ApiResponse(code = 400,message = "参数没有填好",response = String.class)*/
-	public String findItemCatNameById(Long itemCatId) {
-		
+	public String findItemCatNameById(Integer itemCatId) {
 		return itemCatService.findItemCatService(itemCatId);
 	}
+
 	
-	
-	/*
-	 @GetMapping("/{userId}")
-	    public String update(@PathVariable("userId") Integer userId, Model model) {
-	        model.addAttribute("roleIds", userService.selectRoleIdsById(userId));
-	        model.addAttribute("user", userService.selectOne(userId));
-	        model.addAttribute("roles", roleService.selectAll());
-	        return "user/user-add";
-	    }*/
-	
+
 }

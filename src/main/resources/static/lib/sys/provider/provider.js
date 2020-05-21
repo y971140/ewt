@@ -215,7 +215,7 @@ layui.config({
     }
 
     function del(obj) {
-        layer.confirm("确定删除商品吗?", {icon: 3, title: '删除提示'},
+        layer.confirm("确定删除供应商吗?", {icon: 3, title: '删除提示'},
             function (index) {//确定回调
                 var id = obj.data.id;
                 $.post('/provider/' + id, {_method: "DELETE"}, function (data) {

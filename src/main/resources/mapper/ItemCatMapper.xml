@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="im.zhaojun.system.mapper.ItemCatMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="im.zhaojun.system.model.ItemCat">
+        <id column="id" property="id" />
+        <result column="parent_id" property="parentId" />
+        <result column="name" property="name" />
+        <result column="status" property="status" />
+        <result column="sort_order" property="sortOrder" />
+        <result column="is_parent" property="isParent" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id as id,
+        parent_id as parentId,
+        name as name,
+        status as status,
+        sort_order as sortOrder,
+        is_parent as isParent,
+        create_time as createTiime,
+        update_time as updateTime
+    </sql>
+    <resultMap id="TreeBaseResultMap" type="im.zhaojun.system.model.ItemCat">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="parent_id" jdbcType="INTEGER" property="parentId"/>
+        <result column="sort_order" jdbcType="INTEGER" property="sortOrder"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+        <collection property="children" ofType="im.zhaojun.system.model.ItemCat" select="selectAllTree" column="{parent_id = id}"/>
+    </resultMap>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from tb_item_cat
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete from tb_item_cat
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="im.zhaojun.system.model.ItemCat"
+            useGeneratedKeys="true">
+        insert into tb_item_cat (name, parent_id, sort_order,
+        create_time, update_time)
+        values (#{name,jdbcType=VARCHAR}, #{parentId,jdbcType=INTEGER}, #{sortOrder,jdbcType=INTEGER},
+        #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+    </insert>
+
+    <update id="updateByPrimaryKey" parameterType="im.zhaojun.system.model.ItemCat">
+        update tb_item_cat
+        set name = #{name,jdbcType=VARCHAR},
+        parent_id = #{parentId,jdbcType=INTEGER},
+        sort_order = #{sortOrder,jdbcType=INTEGER}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+
+    <select id="selectByParentId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from tb_item_cat
+        where parent_id = #{parentId}
+        order by sort_order
+    </select>
+
+    <select id="selectChildrenIDByPrimaryKey" resultType="java.lang.Integer">
+        select id
+        from tb_item_cat
+        where parent_id = #{id, jdbcType=INTEGER}
+    </select>
+
+    <select id="selectMaxOrderNum" resultType="int">
+        select ifnull(max(sort_order), 0)
+        from tb_item_cat
+    </select>
+
+    <update id="swapSort">
+        UPDATE
+            tb_item_cat AS per
+                JOIN
+                tb_item_cat AS next
+                ON
+                        (per.`id` = #{currentId} AND next.`id` = #{swapId})
+                        OR
+                        (per.`id` = #{swapId} AND next.`id` = #{currentId})
+        SET per.`sort_order`  = next.`sort_order`,
+            next.`sort_order` = per.`sort_order`
+    </update>
+
+    <select id="selectAllTree" resultMap="TreeBaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from tb_item_cat
+        <where>
+            <choose>
+                <when test="parent_id!=null">
+                    and parent_id = #{parent_id}
+                </when>
+                <otherwise>
+                    and parent_id = 0
+                </otherwise>
+            </choose>
+        </where>
+        order by sort_order
+    </select>
+
+</mapper>

@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
@@ -11,6 +12,7 @@ import java.util.Date;
 
 @Accessors(chain = true)
 @TableName    //实现了对象与表的映射关系 如果表名相同,则可以省略不写
+@Data
 public class PublicModel implements Serializable {
     /**
      *
@@ -29,7 +31,6 @@ public class PublicModel implements Serializable {
     private Integer updateId;
     @TableField(fill = FieldFill.INSERT_UPDATE)
     private String updateName;
-
     public PublicModel(Date createTime, Integer createId, String createName, Date updateTime, Integer updateId, String updateName) {
         this.createTime = createTime;
         this.createId = createId;
@@ -65,7 +66,6 @@ public class PublicModel implements Serializable {
     public String getUpdateName() {
         return this.updateName;
     }
-
     public PublicModel setCreateTime(Date createTime) {
         this.createTime = createTime;
         return this;
@@ -95,6 +95,7 @@ public class PublicModel implements Serializable {
         this.updateName = updateName;
         return this;
     }
+
 
     public boolean equals(final Object o) {
         if (o == this) return true;
@@ -147,8 +148,7 @@ public class PublicModel implements Serializable {
         result = result * PRIME + ($updateName == null ? 43 : $updateName.hashCode());
         return result;
     }
-
     public String toString() {
-        return "PublicModel(createTime=" + this.getCreateTime() + ", createId=" + this.getCreateId() + ", createName=" + this.getCreateName() + ", updateTime=" + this.getUpdateTime() + ", updateId=" + this.getUpdateId() + ", updateName=" + this.getUpdateName() + ")";
+        return "PublicModel(createTime=" + this.getCreateTime() + ", createId=" + this.getCreateId() + ", createName=" + this.getCreateName() + ", updateTime=" + this.getUpdateTime() + ", updateId=" + this.getUpdateId() + ", updateName=" + this.getUpdateName() +  ")";
     }
 }

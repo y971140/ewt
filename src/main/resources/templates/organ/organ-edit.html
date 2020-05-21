@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>修改数据</title>
+    <link rel="stylesheet" th:href="@{/component/layui/css/layui.css}"/>
+</head>
+<body class="layui-bg-gray">
+<div class="layui-row">
+    <div class="layui-col-md12">
+        <div class="layui-card" style="margin: 10px;">
+            <div class="layui-card-body">
+                <form class="layui-form" action="" lay-filter="organForm">
+                    <input name="id" type="text" style="display: none">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">机构名称<span style="color: red;">*</span></label>
+                        <div class="layui-input-block">
+                            <input type="text" name="organName" id="organName" lay-verify="required" placeholder="请输入机构名称" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">机构简称<span style="color: red;">*</span></label>
+                        <div class="layui-input-block">
+                            <input type="text" name="abbreviation" id="abbreviation" lay-verify="required" placeholder="请输入机构简称" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">机构电话<span style="color: red;">*</span></label>
+                        <div class="layui-input-block">
+                            <input type="text" name="oTel" id="oTel" lay-verify="required" placeholder="请输入机构电话" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">打印信息头<span style="color: red;">*</span></label>
+                        <div class="layui-input-block">
+                            <input type="text" name="organPrinta" id="organPrinta" lay-verify="required" placeholder="请输入打印信息头" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">打印信息尾<span style="color: red;">*</span></label>
+                        <div class="layui-input-block">
+                            <input type="text" name="organPrintb" id="organPrintb" lay-verify="required" placeholder="请输入打印信息尾" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">打印信息尾<span style="color: red;">*</span></label>
+                        <div class="layui-input-block">
+                            <input type="text" name="organPrintc" id="organPrintc" lay-verify="required" placeholder="请输入打印信息尾" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">打印信息尾<span style="color: red;">*</span></label>
+                        <div class="layui-input-block">
+                            <input type="text" name="organPrintd" id="organPrintd" lay-verify="required" placeholder="请输入打印信息尾" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">打印信息尾<span style="color: red;">*</span></label>
+                        <div class="layui-input-block">
+                            <input type="text" name="organPrinte" id="organPrinte" lay-verify="required" placeholder="请输入打印信息尾" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">打印信息尾<span style="color: red;">*</span></label>
+                        <div class="layui-input-block">
+                            <input type="text" name="organPrintf" id="organPrintf" lay-verify="required" placeholder="请输入打印信息尾" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">上级机构ID<span style="color: red;">*</span></label>
+                        <div class="layui-input-block">
+                            <input type="text" name="parentId" id="parentId" lay-verify="required" placeholder="请输入上级机构ID" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">机构等级<span style="color: red;">*</span></label>
+                        <div class="layui-input-block">
+                            <input type="text" name="rank" id="rank" lay-verify="required" placeholder="请输入机构等级" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">省<span style="color: red;">*</span></label>
+                        <div class="layui-input-block">
+                            <input type="text" name="province" id="province" lay-verify="required" placeholder="请输入省" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">市<span style="color: red;">*</span></label>
+                        <div class="layui-input-block">
+                            <input type="text" name="city" id="city" lay-verify="required" placeholder="请输入市" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">区<span style="color: red;">*</span></label>
+                        <div class="layui-input-block">
+                            <input type="text" name="areas" id="areas" lay-verify="required" placeholder="请输入区" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">地址<span style="color: red;">*</span></label>
+                        <div class="layui-input-block">
+                            <input type="text" name="oaddr" id="oaddr" lay-verify="required" placeholder="请输入地址" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">是否为默认配送机构<span style="color: red;">*</span></label>
+                        <div class="layui-input-block">
+                            <input type="text" name="isdefaultequipOrgan" id="isdefaultequipOrgan" lay-verify="required" placeholder="请输入是否为默认配送机构" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">机构价格类型<span style="color: red;">*</span></label>
+                        <div class="layui-input-block">
+                            <input type="text" name="priceType" id="priceType" lay-verify="required" placeholder="请输入机构价格类型" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">是否可用，1可用，0不可用<span style="color: red;">*</span></label>
+                        <div class="layui-input-block">
+                            <input type="text" name="useFlag" id="useFlag" lay-verify="required" placeholder="请输入是否可用，1可用，0不可用" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">积分倍率<span style="color: red;">*</span></label>
+                        <div class="layui-input-block">
+                            <input type="text" name="integralRate" id="integralRate" lay-verify="required" placeholder="请输入积分倍率" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">创建时间<span style="color: red;">*</span></label>
+                        <div class="layui-input-block">
+                            <input type="text" name="createTime" id="createTime" lay-verify="required" placeholder="请输入创建时间" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">创建人ID<span style="color: red;">*</span></label>
+                        <div class="layui-input-block">
+                            <input type="text" name="createId" id="createId" lay-verify="required" placeholder="请输入创建人ID" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">创建人名称<span style="color: red;">*</span></label>
+                        <div class="layui-input-block">
+                            <input type="text" name="createName" id="createName" lay-verify="required" placeholder="请输入创建人名称" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">机构类型<span style="color: red;">*</span></label>
+                        <div class="layui-input-block">
+                            <input type="text" name="organType" id="organType" lay-verify="required" placeholder="请输入机构类型" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">更新时间<span style="color: red;">*</span></label>
+                        <div class="layui-input-block">
+                            <input type="text" name="updateTime" id="updateTime" lay-verify="required" placeholder="请输入更新时间" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">更新人ID<span style="color: red;">*</span></label>
+                        <div class="layui-input-block">
+                            <input type="text" name="updateId" id="updateId" lay-verify="required" placeholder="请输入更新人ID" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">更新人名称<span style="color: red;">*</span></label>
+                        <div class="layui-input-block">
+                            <input type="text" name="updateName" id="updateName" lay-verify="required" placeholder="请输入更新人名称" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">版本<span style="color: red;">*</span></label>
+                        <div class="layui-input-block">
+                            <input type="text" name="version" id="version" lay-verify="required" placeholder="请输入版本" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <button class="layui-btn" lay-submit lay-filter="formBtn">立即提交</button>
+                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script th:src="@{/component/layui/layui.js}"></script>
+<script th:src="@{/assets/common/lay-config.js}"></script>
+<script>
+    layui.use(['layer','jquery','form','fast'], function() {
+        var $ = layui.jquery
+            ,form = layui.form
+            ,layer = layui.layer
+            ,fast = layui.fast;
+
+        //获取详情信息，填充表单
+        $.ajax({
+            type: 'post',
+            url: fast.ctxPath + '/organ/detail',
+            data: {
+                id: fast.getUrlParam('id')
+            },
+            dataType: 'json',
+            success: function (res) {
+                form.val('organForm', res.data);
+            },
+            error: function (XMLHttpRequest,textStatus) {
+                layer.msg('获取数据失败', {icon: 2});
+            }
+        });
+
+        //监听提交
+        form.on('submit(formBtn)', function(data) {
+            $.ajax({
+                type: 'post',
+                url: fast.ctxPath + '/organ/editOrgan',
+                data: data.field,
+                dataType: 'json',
+                success: function (data) {
+                    // 提示信息
+                    top.layer.msg(data.message, {icon: 1});
+                    // 获取当前iframe层的索引
+                    var index = parent.layer.getFrameIndex(window.name);
+                    // 关闭弹窗
+                    parent.layer.close(index);
+                    // 重载表格
+                    parent.layui.table.reload('organTable',{page:{curr:1}});
+                },
+                error: function (XMLHttpRequest,textStatus) {
+                    layer.msg('请求失败，系统发生异常', {icon: 2});
+                    console.log(textStatus);
+                }
+            });
+            return false;
+        });
+
+    });
+</script>
+</body>
+</html>

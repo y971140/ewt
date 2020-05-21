@@ -327,7 +327,7 @@ return '';
     function sotitle(val) {
         var name;
         $.ajax({
-            type: "get",
+            type: "post",
             url: "/item/cat/queryItemName",
             data: {itemCatId: val},
             cache: true,    //缓存

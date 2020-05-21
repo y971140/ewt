@@ -24,7 +24,9 @@
                 </label>
                 <div class="layui-input-block">
                     <input type="text" id="username" onblur="verifyUserName()"  name="username" th:value="${user?.username}" lay-verify="required"
-                        lay-vertype="tips" autocomplete="off"    class="layui-input">
+                        lay-vertype="tips" autocomplete="off"
+                           onkeyup="this.value=this.value.replace(/[^\w]/g,'');"
+                           class="layui-input">
                 </div>
             </div>
             <div class="layui-form-item">
@@ -82,8 +84,8 @@
                 <label class="layui-form-label">
                     部门
                 </label>
-                <div class="layui-input-block">
-                    <ul id="deptTree" class="dtree" data-id="0" data-value="请选择部门"></ul>
+                <div class="layui-input-block"  >
+                    <ul id="deptTree" class="dtree" data-id="0"  data-value="请选择部门"></ul>
                 </div>
             </div>
             <div class="layui-form-item">
@@ -151,7 +153,7 @@
 
             //监听提交
             form.on('submit(edit)', function (form) {
-                console.log(form);
+                //console.log(form);
                 form.field._method = 'PUT';
                 form.field.role = formSelects.value('role-select', 'val');
                 $.post('/user', form.field, function (result) {
@@ -166,7 +168,7 @@
         });*/
             function addDone(data) {
                 layer.msg("添加成功", { icon: 6 });
-                parent.layui.table.reload('user-table');
+                 parent.layui.table.reload('user-table');
             }
 
             function editDone(data) {
@@ -180,20 +182,25 @@
                 if (submit == "新增"){
                     $.post('/user/verifyUserName/',{username:username}, function () {
                     });
+                    $(document).ajaxError(function (event, response) {
+                        if (response.status===500){
+                            GetCursorPositioning("username");
+                        }
+                    });
                 }else{
                     $.post('/user/verifyUpdateName/',{userId:userId,username:username}, function () {
                     });
-                    console.log("这个是update="+submit);
+                    $(document).ajaxError(function (event, response) {
+                        if (response.status===500){
+                            GetCursorPositioning("username");
+                        }
+                    });
                 }
                     /**
                      * 调用系统错误判断返回值500时，确认为用户名重复，
                      * 能过GetCursorPositioning方法定位光标到username处
                      * */
-                $(document).ajaxError(function (event, response) {
-                    if (response.status===500){
-                        GetCursorPositioning("username");
-                    }
-                });
+
                     return false;
                 }
         });

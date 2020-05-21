@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro"
+      xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>机构管理</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi"/>
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{/favicon.ico}"/>
+    <link rel="stylesheet" th:href="@{/lib/layui/css/layui.css}">
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+    <link rel="stylesheet" th:href="@{/css/animate.min.css}">
+    <link rel="stylesheet" th:href="@{/iconfont/iconfont.css}">
+</head>
+<body>
+<div class="page-loading">
+    <div class="rubik-loader"></div>
+</div>
+<div class="z-body animated fadeIn ">
+    <form class="layui-form  zadmin-search-area input">
+        <div class="layui-form-item">
+            <label for="organName" class="layui-form-label layui-form-label-custom ">机构名称</label>
+            <div class="layui-input-inline">
+                <input type="text" name="organName" autocomplete="off" placeholder="请输入机构名称" class="layui-input">
+            </div>
+            <label for="abbreviation" class="layui-form-label layui-form-label-custom">机构简称</label>
+            <div class="layui-input-inline">
+                <input type="text" name="abbreviation" autocomplete="off" placeholder="请输入机构简称" class="layui-input">
+            </div>
+            <label for="useFlag" class="layui-form-label layui-form-label-custom">机构状态</label>
+            <div class="layui-input-inline">
+                <select name="useFlag" id="useFlag">
+                    <option value="">请选择</option>
+                    <option value="1">可用</option>
+                    <option value="0">不可用</option>
+                </select>
+            </div>
+            <button lay-submit="" lay-filter="search"
+                    class="layui-btn layui-btn-sm layui-btn-primary table-action layui-btn-primary-zadmin">
+                <i class="zadmin-icon zadmin-icon-search"></i>
+            </button>
+        </div>
+    </form>
+    <table class="layui-hide" id="organ-table"></table>
+</div>
+
+<script type="text/html" id="toolbar">
+    <shiro:hasPermission name="organ:add">
+        <button type="button" class="layui-btn layui-btn-xs layui-btn-normal" lay-event="add">
+            <i class="zadmin-icon zadmin-icon-xinzeng zadmin-oper-area"></i>
+            新增
+        </button>
+    </shiro:hasPermission>
+</script>
+
+<script type="text/html" id="column-toolbar">
+    <shiro:hasPermission name="organ:update">
+        <a lay-event="edit">
+            <i class="zadmin-icon zadmin-icon-edit-square zadmin-oper-area zadmin-blue" title="编辑"></i>
+        </a>
+    </shiro:hasPermission>
+    <shiro:hasPermission name="organ:delete">
+        <a lay-event="del">
+            <i class="zadmin-icon zadmin-icon-delete zadmin-oper-area zadmin-red" title="删除"></i>
+        </a>
+    </shiro:hasPermission>
+
+    <shiro:lacksPermission name="organ:update,organ:delete">
+        <i class="zadmin-icon zadmin-icon-wuquanxian zadmin-oper-area zadmin-red"></i>无权限
+    </shiro:lacksPermission>
+</script>
+<script type="text/html" id="statusTpl">
+    <input type="checkbox" name="useFlag" value="{{d.id}}" lay-skin="switch" lay-text="可用|不可用"
+           lay-filter="useFlag" {{ d.useFlag== '1' ? 'checked' : '' }}>
+</script>
+<script th:src="@{/lib/jquery/jquery.min.js}"></script>
+<script th:src="@{/lib/layui/layui.js}"></script>
+<script th:src="@{/js/common.js}"></script>
+
+<script>
+    layui.config({
+        base: '/lib/layui/extend/'
+    }).use(['table', 'element', 'form', 'dtree', 'tablePlug'], function () {
+        var table = layui.table;
+        var $ = layui.$;
+        var form = layui.form;
+        var dtree = layui.dtree;
+        var tablePlug = layui.tablePlug;
+
+        tablePlug.smartReload.enable(true);
+
+        /* dtree.renderSelect({
+             elem: "#deptTree",
+             url: "/dept/tree",
+             dataStyle: "layuiStyle",
+             width: "100%",
+             method: "GET",
+             dot: false,
+             menubar: true,
+             response: {
+                 statusCode: 0,
+                 message: "msg",
+                 treeId: "id",
+                 parentId: "parentId",
+                 title: "name"
+             }
+         });*/
+        /*     dtree.on("node('deptTree')", function (obj) {
+                 var typeDom = layui.$('#deptId');
+                 console.log(typeDom.val(), obj.param.nodeId);
+                 console.log(typeDom.val() === obj.param.nodeId);
+                 if (typeDom.val() === obj.param.nodeId) {
+                     typeDom.val('');
+                     layui.$("input[dtree-id='deptTree']").val('请选择');
+                 } else {
+                     typeDom.val(obj.param.nodeId)
+                 }
+             });*/
+
+        table.render({
+            elem: '#organ-table'
+            , url: '/organ/list'
+            , page: true
+            , height: 'full-20'
+            , toolbar: '#toolbar'
+            , smartReloadModel: true
+            , cols: [
+                [
+                    {title: '操作', fixed: 'left', align: 'center', toolbar: '#column-toolbar'}
+                    , {type: 'checkbox', align: 'center', fixed: 'left'}
+                    , {type: 'numbers', align: 'center', title: '序号', width: '5%'}
+                    , {field: 'id', align: 'center', sort: true, hide: true, title: '编号'}
+                    , {field: 'organName', align: 'center', sort: true, title: '机构名称', width: 180}
+                    , {field: 'abbreviation', align: 'center', sort: true, title: '机构简称'}
+                    , {
+                    field: 'parentId', align: 'center', title: '上级机构ID', templet: function (d) {
+                        return d.parentId === 0 ? "无上级" : "其他级";
+                    }
+                }
+                    , {
+                    field: 'rank', align: 'center', title: '机构等级', templet: function (d) {
+                        return d.rank === 1 ? "一级" : "其他";
+                    }
+                }
+                    , {
+                    field: 'isDefaultEquipOrgan', align: 'center', title: '默认配送机构', templet: function (d) {
+                        return d.isDefaultEquipOrgan === 1 ? "是" : "否";
+                    }
+                }
+                    , {field: 'useFlag', align: 'center', title: '机构状态', width: 160, templet: "#statusTpl",}
+                    , {
+                    field: 'organType', align: 'center', title: '机构类型', templet: function (d) {
+                        return d.organType == '1' ? "代理级" : "其他级";
+                    }
+                }
+                    , {field: 'createTime', align: 'center', sort: true, title: '创建时间', width: 160}
+                    , {field: 'updateTime', align: 'center', title: '更新时间', width: 160}
+                ]
+            ]
+        });
+
+        // 账号状态(上架/下架)点击事件
+        form.on('switch(useFlag)', function (data) {
+            if (data.elem.checked) {
+                $.post('/organ/' + data.value + '/enable', function (data) {
+                    handlerResult(data, enableDone);
+                });
+            } else {
+                if (data.value == 1) {
+                    layer.msg("该机构不允许禁用！！！", {icon: 2});
+                    table.reload('organ-table');
+                    return false;
+                }
+                $.post('/organ/' + data.value + '/disable', function (data) {
+                    handlerResult(data, disableDone);
+                });
+            }
+        });
+
+        // 工具条点击事件
+        table.on('toolbar', function (obj) {
+            var data = obj.data;
+            var event = obj.event;
+
+            if (event === 'add') {
+                add();
+            }
+        });
+
+        // 行点击事件 重置密码
+        table.on('tool', function (obj) {
+            var data = obj.data;
+            var event = obj.event;
+            if (event === 'edit') {
+                edit(data.id);
+            } else if (event === 'reset') {
+                layer.open({
+                    content: '/organ/' + data.id + "/reset",
+                    title: "重置密码",
+                    area: ['500px', '200px'],
+                    type: 2,
+                    maxmin: true,
+                    shadeClose: true,
+                    end: function () {
+                        table.reload('organ-table');
+                    }
+                });
+            } else if (event === 'del') {
+                del(obj);
+            }
+        });
+
+        function disableDone(data) {
+            parent.layer.msg("禁用成功", {icon: 6});
+            table.reload('organ-table');
+        }
+
+        function enableDone(data) {
+            parent.layer.msg("激活成功", {icon: 6});
+            table.reload('organ-table');
+        }
+
+        function add() {
+            layer.open({
+                type: 2,
+                title: '新增',
+                content: '/organ',
+                btn: ['提交', '关闭'],
+                btnAlign: 'c',
+                skin: 'yourclass',
+                offset: '15px',
+                closeBtn: 1,
+                shade: [0.8, '#393D49'],
+                scrollbar: false,
+                area: ['95%', '95%'],
+                id: 'sdafdsfa',
+                success: function (layero, index) {
+                    setTimeout(function () {
+                        layui.layer.tips('返回列表', '.layui-layer-setwin .layui-layer-close', {
+                            tips: [3, '#3595CC'], time: 2000,
+                            area: ['80px', 'auto']
+                        });
+                    }, 500)
+                    var body = layer.getChildFrame('body', index);
+                    var iframeWin = window[layero.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法：iframeWin.method();
+                    console.log(body.html()) //得到iframe页的body内容
+                    //body.find('input').val('Hi，我是从父页来的')
+                    $(document).on('keydown', this.enterConfirm); //监听键盘事件
+                }, yes: function (index, layero) {
+                    $(".layui-layer-btn0").on("click", function () {
+                        console.log("你点击了提交按钮！");
+                        var submit = layero.find('iframe').contents().find("#Submit");// #subBtn为页面层提交按钮ID
+                        $('.Submit').addClass('layui-btn-disabled').attr('disabled', "true");
+                        submit.click();// 触发提交监听
+                    })
+                    //layer.close(index); //如果设定了yes回调，需进行手工关闭
+                }, end: function () {
+                    $(document).off('keydown', this.enterConfirm); //解除键盘事件
+                }
+            });
+        }
+
+        function del(obj) {
+            layer.confirm("确定删除商品吗?", {icon: 3, title: '提示'},
+                function (index) {//确定回调
+                    var id = obj.data.id;
+                    $.post('/organ/' + id, {_method: "DELETE"}, function (data) {
+                        layer.close(index);
+                        handlerResult(data, deleteDone);
+                    });
+                }, function (index) {//取消回调
+                    layer.close(index);
+                }
+            );
+        }
+
+        function deleteDone(data) {
+            parent.layer.msg("删除成功", {icon: 6});
+            table.reload('organ-table');
+        }
+
+        function edit(id) {
+            console.log(id);
+            layer.open({
+                content: '/organ/' + id,
+                title: "编辑",
+                area: ['40%', '85%'],
+                type: 2,
+                maxmin: true,
+                shadeClose: true,
+                end: function () {
+                    table.reload('organ-table');
+                }
+            });
+        }
+
+        form.on('submit(search)', function (form) {
+            table.reload('organ-table', {
+                where: form.field
+                , page: {
+                    curr: 1 //重新从第 1 页开始
+                }
+            });
+            return false;
+        });
+
+    });
+
+
+</script>
+</body>
+
+</html>

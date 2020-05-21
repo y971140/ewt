@@ -75,7 +75,7 @@ Layer.prototype = {
             content: url,
             maxmin: true,
             scrollbar: false,
-            area: [width, height],
+            area: [width+"%", height+"%"],
             success: function (layero) {
                 // flag = false;
                 $(':focus').blur();
@@ -149,16 +149,16 @@ Layer.prototype = {
     openDialog1: function (title, url, width, height, callback1) {
         var length = arguments.length;   //  实际传入参数的长度
         if (length == 2) {   // 默认宽高
-            this.openDialogNoCallBack1(title, url, this.width, this.height)
+            this.NoParametersReturnPopUpWindow(title, url, this.width, this.height)
             console.log(this.width, this.height);
         } else if (length == 3) {  // 只传入宽度参数
             width += this.px;
-            this.openDialogNoCallBack1(title, url, width, this.height)
+            this.NoParametersReturnPopUpWindow(title, url, width, this.height)
             console.log(width, this.height);
         } else if (length == 4) {  // 传入宽度和高度
             width += this.px;
             height += this.px;
-            this.openDialogNoCallBack1(title, url, width, height)
+            this.NoParametersReturnPopUpWindow(title, url, width, height,LayerId)
             console.log(width, height);
         } else if (length == 5) {   // 带回调函数
             width += this.px;
@@ -167,31 +167,45 @@ Layer.prototype = {
             console.log(title, url, width, height, callback1);
         }
     },   //用于内窗口，不需要返回值使用
-    openDialogNoCallBack1: function (title, url, width, height) {
+    NoParametersReturnPopUpWindow: function (title, url, width, height,LayerId,tableName) {
         layer.open({
-            offset: '15px',
-            //maxmin: true,
-            type: 2,
-            title: title,
+            type: 2,//弹窗类型
             content: url,
-            //maxmin: true,
-            scrollbar: false,
-            area: [width, height],
+            title: title,//标题
+            btn:['提交','关闭'],
+            btnAlign: 'c',//btnAlign: 'c'	按钮居中对齐
+            skin: 'custom-class',//弹窗按钮样式
+            offset : '15px',//坐标位置，只定义top坐标，水平保持居中
+            closeBtn:1, //关闭按钮样式
+            shade: [0.8, '#393D49'],//shade - 遮罩,背景颜色
+            scrollbar: false,//不显示滚动条
+            area: [width+"%", height+"%"],//显示窗口尺寸
+            id:LayerId,//弹窗ID
             success: function (layero, index) {
                 $(':focus').blur();
                 setTimeout(function () {
                     layui.layer.tips('返回列表', '.layui-layer-setwin .layui-layer-close', {
-                        tips: [3, '#3595CC'], time: 2000,
+                        tips: [3, '#3595CC'], time: 500,
                         area: ['80px', 'auto']
                     });
+                    $(document).on('keydown', this.enterConfirm); //监听键盘事件
+                    // 点击确定按钮回调事件
+                    $(".layui-layer-btn0").on("click",function() {
+                        console.log("你点击了提交按钮！");
+                    })
                 }, 500)
+            },yes: function(index, layero) {
+                const submit = layero.find('iframe').contents().find("#Submit");// #Submit为页面层(XXXX-add.html文件)提交按钮ID
+                submit.click();// 触发提交监听
+            },end:function () {
+                $(document).off('keydown', this.enterConfirm); //解除键盘事件
+                //parent.table.reload(tableName);
             }
         });
     },   //用于内窗口，不需要返回值使用
     openDialogWithCallBack1: function (title, url, width, height, callback1) {
         console.log(title, url, width, height, callback1);
         layer.open({
-            offset: '35px',
             //maxmin: true,
             type: 2,
             title: title,

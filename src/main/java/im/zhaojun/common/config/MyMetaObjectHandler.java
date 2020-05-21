@@ -31,6 +31,7 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
         boolean updateTime = metaObject.hasSetter("updateTime");
         boolean createId = metaObject.hasSetter("createId");
         boolean createName = metaObject.hasSetter("createName");
+        boolean modifyTime = metaObject.hasSetter("modifyTime");
         if (createId) {
             this.setFieldValByName("createId", userEntity.getUserId(), metaObject);
         }
@@ -42,6 +43,9 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
         }
         if (updateTime) {
             setFieldValByName("updateTime", new Date(), metaObject);
+        }
+        if (modifyTime) {
+            setFieldValByName("modifyTime", new Date(), metaObject);
         }
     }
 
@@ -58,6 +62,7 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
         boolean updateTime = metaObject.hasSetter("updateTime");
         boolean updateId = metaObject.hasSetter("updateId");
         boolean updateName = metaObject.hasSetter("updateName");
+        boolean modifyTime = metaObject.hasSetter("modifyTime");
         if (updateTime) {
             setFieldValByName("updateTime", new Date(), metaObject);
         }
@@ -67,6 +72,8 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
         if (updateName) {
             this.setFieldValByName("updateName", userEntity.getUsername(), metaObject);
         }
-
+        if (modifyTime) {
+            this.setFieldValByName("modifyTime", userEntity.getUsername(), metaObject);
+        }
     }
 }

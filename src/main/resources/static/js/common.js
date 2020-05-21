@@ -92,7 +92,7 @@ $(document).ajaxError(function (event, response) {
  * 禁用 ajax 缓存
  */
 $.ajaxSetup({
-    cache: false
+    cache: true
 });
 
 /**

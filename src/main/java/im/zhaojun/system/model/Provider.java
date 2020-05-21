@@ -10,7 +10,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
-@ApiModel(value="Provider", description="供应商资料表")
+@ApiModel(value = "Provider", description = "供应商资料表")
 @Accessors(chain = true)
 public class Provider extends PublicModel {
     private static final long serialVersionUID = 7026922358123970623L;
@@ -40,7 +40,20 @@ public class Provider extends PublicModel {
     private String remark;
     private Integer isDel;
 
-    public Provider(Long id, String pid, @NotBlank(message = "供应商名称不能为空") String pname, String bankAccount, String bankName, Integer genre, String tel, @NotBlank(message = "手机号不能为空") @Pattern(regexp = "^1[3456789]\\d{9}$", message = "手机号格式不正确") String mobile, @Email(message = "邮箱格式不正确") String email, String addr, Integer abcSort, Integer province, Integer city, Integer areas, Integer isActivate, String remark, Integer isDel) {
+    public Provider(Long id, String pid,
+                    @NotBlank(message = "供应商名称不能为空") String pname,
+                    String bankAccount, String bankName,
+                    Integer genre, String tel,
+                    @NotBlank(message = "手机号不能为空")
+                    @Pattern(regexp = "^1[3456789]\\d{9}$", message = "手机号格式不正确")
+                    String mobile, @Email(message = "邮箱格式不正确")
+                    String email, String addr,
+                    Integer abcSort,
+                    Integer province,
+                    Integer city,
+                    Integer areas,
+                    Integer isActivate,
+                    String remark, Integer isDel) {
         this.id = id;
         this.pid = pid;
         this.pname = pname;
@@ -62,6 +75,7 @@ public class Provider extends PublicModel {
 
     public Provider() {
     }
+
     public Long getId() {
         return this.id;
     }

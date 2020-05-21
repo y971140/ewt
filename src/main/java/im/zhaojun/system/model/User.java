@@ -3,167 +3,143 @@ package im.zhaojun.system.model;
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import im.zhaojun.common.validate.groups.Create;
+import io.swagger.annotations.ApiModel;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 import java.util.Date;
 
-public class User implements Serializable {
-	private static final long serialVersionUID = -5936948512954961199L;
-	private Integer userId;
-	@NotBlank(message = "用户名不能为空")
-	@TableField(fill = FieldFill.UPDATE)
-	private String username;
+@ApiModel(value = "user", description = "用户表")
+public class User extends  PublicModel implements Serializable {
+    private static final long serialVersionUID = -5936948512954961199L;
+    private Integer userId;
+    @NotBlank(message = "用户名不能为空")
+    @TableField(fill = FieldFill.UPDATE)
+    private String username;
+    @NotBlank(message = "姓名不能为空")
+    private String fullname;
+    @JsonIgnore
+    private String password;
+    @JsonIgnore
+    private String salt;
+    @Email(message = "邮箱格式不正确")
+    private String email;
+    private String status;
+    private Date lastLoginTime;
 
-	@NotBlank(message = "姓名不能为空")
-	private String fullname;
+    public Date getModifyTime() {
+        return modifyTime;
+    }
 
-	@JsonIgnore
-	private String password;
+    public void setModifyTime(Date modifyTime) {
+        this.modifyTime = modifyTime;
+    }
 
-	@JsonIgnore
-	private String salt;
+    @TableField(fill = FieldFill.INSERT_UPDATE)
+    @JsonIgnore
+    private Date modifyTime;
 
-	@Email(message = "邮箱格式不正确")
-	private String email;
+    @JsonIgnore
+    private String activeCode;
 
-	private String status;
+    private Integer deptId;
 
-	private Date lastLoginTime;
-
-	private Date createTime;
-
-	@JsonIgnore
-	private Date modifyTime;
-
-	@JsonIgnore
-	private String activeCode;
-
-	private Integer deptId;
-
-	private String deptName;
+    private String deptName;
 
     public User() {
     }
 
     public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
+        return serialVersionUID;
+    }
 
+    public Integer getUserId() {
+        return userId;
+    }
 
-	public Integer getUserId() {
-		return userId;
-	}
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
 
-	public void setUserId(Integer userId) {
-		this.userId = userId;
-	}
+    public String getUsername() {
+        return username;
+    }
 
-	public String getUsername() {
-		return username;
-	}
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
-	public void setUsername(String username) {
-		this.username = username;
-	}
+    public String getFullname() {
+        return fullname;
+    }
 
-	public String getFullname() {
-		return fullname;
-	}
+    public void setFullname(String fullname) {
+        this.fullname = fullname;
+    }
 
-	public void setFullname(String fullname) {
-		this.fullname = fullname;
-	}
+    public String getPassword() {
+        return password;
+    }
 
-	public String getPassword() {
-		return password;
-	}
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    public String getSalt() {
+        return salt;
+    }
 
-	public String getSalt() {
-		return salt;
-	}
+    public void setSalt(String salt) {
+        this.salt = salt;
+    }
 
-	public void setSalt(String salt) {
-		this.salt = salt;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public String getStatus() {
+        return status;
+    }
 
-	public String getStatus() {
-		return status;
-	}
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
-	public void setStatus(String status) {
-		this.status = status;
-	}
+    public Date getLastLoginTime() {
+        return lastLoginTime;
+    }
 
-	public Date getLastLoginTime() {
-		return lastLoginTime;
-	}
+    public void setLastLoginTime(Date lastLoginTime) {
+        this.lastLoginTime = lastLoginTime;
+    }
+    public String getActiveCode() {
+        return activeCode;
+    }
 
-	public void setLastLoginTime(Date lastLoginTime) {
-		this.lastLoginTime = lastLoginTime;
-	}
+    public void setActiveCode(String activeCode) {
+        this.activeCode = activeCode;
+    }
 
-	public Date getCreateTime() {
-		return createTime;
-	}
+    public Integer getDeptId() {
+        return deptId;
+    }
 
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
-	}
+    public void setDeptId(Integer deptId) {
+        this.deptId = deptId;
+    }
 
-	public Date getModifyTime() {
-		return modifyTime;
-	}
+    public String getDeptName() {
+        return deptName;
+    }
 
-	public void setModifyTime(Date modifyTime) {
-		this.modifyTime = modifyTime;
-	}
-
-	public String getActiveCode() {
-		return activeCode;
-	}
-
-	public void setActiveCode(String activeCode) {
-		this.activeCode = activeCode;
-	}
-
-	public Integer getDeptId() {
-		return deptId;
-	}
-
-	public void setDeptId(Integer deptId) {
-		this.deptId = deptId;
-	}
-
-	public String getDeptName() {
-		return deptName;
-	}
-
-	public void setDeptName(String deptName) {
-		this.deptName = deptName;
-	}
-
-	@Override
-	public String toString() {
-		return "User [userId=" + userId + ", username=" + username + ", fullname=" + fullname + ", password=" + password
-				+ ", salt=" + salt + ", email=" + email + ", status=" + status + ", lastLoginTime=" + lastLoginTime
-				+ ", createTime=" + createTime + ", modifyTime=" + modifyTime + ", activeCode=" + activeCode
-				+ ", deptId=" + deptId + ", deptName=" + deptName + "]";
-	}
+    public void setDeptName(String deptName) {
+        this.deptName = deptName;
+    }
 
     public boolean equals(final Object o) {
         if (o == this) return true;
@@ -194,14 +170,6 @@ public class User implements Serializable {
         final Object this$lastLoginTime = this.getLastLoginTime();
         final Object other$lastLoginTime = other.getLastLoginTime();
         if (this$lastLoginTime == null ? other$lastLoginTime != null : !this$lastLoginTime.equals(other$lastLoginTime))
-            return false;
-        final Object this$createTime = this.getCreateTime();
-        final Object other$createTime = other.getCreateTime();
-        if (this$createTime == null ? other$createTime != null : !this$createTime.equals(other$createTime))
-            return false;
-        final Object this$modifyTime = this.getModifyTime();
-        final Object other$modifyTime = other.getModifyTime();
-        if (this$modifyTime == null ? other$modifyTime != null : !this$modifyTime.equals(other$modifyTime))
             return false;
         final Object this$activeCode = this.getActiveCode();
         final Object other$activeCode = other.getActiveCode();
@@ -239,10 +207,6 @@ public class User implements Serializable {
         result = result * PRIME + ($status == null ? 43 : $status.hashCode());
         final Object $lastLoginTime = this.getLastLoginTime();
         result = result * PRIME + ($lastLoginTime == null ? 43 : $lastLoginTime.hashCode());
-        final Object $createTime = this.getCreateTime();
-        result = result * PRIME + ($createTime == null ? 43 : $createTime.hashCode());
-        final Object $modifyTime = this.getModifyTime();
-        result = result * PRIME + ($modifyTime == null ? 43 : $modifyTime.hashCode());
         final Object $activeCode = this.getActiveCode();
         result = result * PRIME + ($activeCode == null ? 43 : $activeCode.hashCode());
         final Object $deptId = this.getDeptId();
